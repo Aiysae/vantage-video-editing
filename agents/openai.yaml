@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vantage视频剪辑Skill"
+  short_description: "把口播剪成带真人融合、数据动画与录屏演示的横竖屏视频，交付成片和源工程"
+  default_prompt: "使用 $vantage-video-editing，把我的口播视频按语义设计分镜，加入真人融合、图形解释与音效，交付视频、封面、字幕与源工程。"

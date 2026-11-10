@@ -1,0 +1,32 @@
+{
+  "_rule": "按内容选曲；两首都合适时，避开上一条视频用过的那首（last_used）。选择结果写进交付报告。",
+  "tracks": {
+    "hazy-after-hours": {
+      "file": "hazy-after-hours.mp3",
+      "mood": "低调、夜色感、高级克制",
+      "duration_s": 127,
+      "use_for": [
+        "深度观点",
+        "行业分析",
+        "AI 技术原理/方法论",
+        "冷静论证、反思类",
+        "短视频（≤2 分钟）"
+      ],
+      "start_at_s": 30
+    },
+    "deep-urban": {
+      "file": "deep-urban.mp3",
+      "mood": "沉稳商务 House",
+      "duration_s": 289,
+      "use_for": [
+        "商业案例",
+        "趋势与机会",
+        "增长/变现/数据成果",
+        "工作流演示、实操类",
+        "长视频（> 2 分钟，免循环）"
+      ],
+      "start_at_s": 40
+    }
+  },
+  "last_used": null
+}

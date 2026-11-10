@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
+  <title>场景短片 · 仓库分发</title>
+  <style>
+    html, body { margin: 0; background: #05070b; }
+    #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+    #c { position: absolute; inset: 0; width: 1080px; height: 1920px; display: block; }
+  </style>
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/" } }
+  </script>
+</head>
+<body>
+  <div id="root" data-composition-id="scene" data-start="0" data-width="1080" data-height="1920" data-duration="5.6">
+    <canvas id="c" width="1080" height="1920"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script src="icons.js"></script>
+  <script>window.__timelines["scene"] = gsap.timeline({ paused: true }).to({}, { duration: 5.6 });</script>
+  <script type="module">
+    // 场景短片：微缩夜景小镇。中央“仓库塔”把发光包裹沿光弧分发给周围小屋，屋前的小 Agent 接住、窗户亮灯。
+    // 全部几何与纹理在代码里程序化生成（无外部模型），所有状态只由时间 t 决定（可逐帧 seek）。
+    import * as THREE from "three";
+    import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+    import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+    import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+    import { BokehPass } from "three/addons/postprocessing/BokehPass.js";
+    import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+
+    const W = 1080, H = 1920, DUR = 5.6;
+    let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+    const ease = (x) => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+    const outBack = (x) => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("c"), antialias: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(1); renderer.setSize(W, H, false);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.3;
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x070a10); scene.fog = new THREE.FogExp2(0x0a0f18, 0.045);
+    const camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 120);
+
+    // ---------- 程序化纹理 ----------
+    function canvasTex(w, h, draw) { const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h);
+      const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; }
+    const cobble = canvasTex(1024, 1024, (g, w, h) => {
+      g.fillStyle = "#2a2622"; g.fillRect(0, 0, w, h);
+      for (let y = 0; y < h; y += 32) for (let x = (y / 32) % 2 ? -16 : 0; x < w; x += 32) {
+        const l = 34 + rnd() * 26; g.fillStyle = `hsl(28, 12%, ${l}%)`; g.beginPath(); g.roundRect(x + 2, y + 2, 28, 28, 7); g.fill();
+        g.fillStyle = "rgba(0,0,0,.25)"; g.fillRect(x + 4, y + 22, 24, 6); }
+    }); cobble.wrapS = cobble.wrapT = THREE.RepeatWrapping; cobble.repeat.set(10, 10);
+    const stone = canvasTex(256, 256, (g, w, h) => { g.fillStyle = "#3b3631"; g.fillRect(0, 0, w, h);
+      for (let y = 0; y < h; y += 24) for (let x = (y / 24) % 2 ? -20 : 0; x < w; x += 40) { g.fillStyle = `hsl(25,10%,${26 + rnd() * 14}%)`; g.fillRect(x + 1, y + 1, 38, 22); } });
+    stone.wrapS = stone.wrapT = THREE.RepeatWrapping;
+    const windowsTex = (cols, rows, litFrac) => canvasTex(256, 512, (g, w, h) => { g.fillStyle = "#000"; g.fillRect(0, 0, w, h);
+      const cw = w / cols, ch = h / rows; for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (rnd() < litFrac) {
+        g.fillStyle = `hsl(${34 + rnd() * 10}, 95%, ${55 + rnd() * 15}%)`; g.fillRect(c * cw + cw * .22, r * ch + ch * .2, cw * .56, ch * .6); } });
+    // GitHub 标识（指代用途，官方图形取自 Simple Icons）
+    const ghPath = (window.MU_ICONS?.brands?.github?.svg || "").match(/d="([^"]+)"/)?.[1];
+    const signTex = canvasTex(1024, 384, (g, w, h) => {
+      g.fillStyle = "#0b0d10"; g.beginPath(); g.roundRect(8, 8, w - 16, h - 16, 40); g.fill();
+      g.strokeStyle = "#66d4f2"; g.lineWidth = 8; g.stroke();
+      if (ghPath) { g.save(); g.translate(70, 72); g.scale(10, 10); g.fillStyle = "#ffffff"; g.fill(new Path2D(ghPath)); g.restore(); }
+      g.fillStyle = "#ffffff"; g.font = "900 120px 'Helvetica Neue', Arial"; g.textBaseline = "middle"; g.fillText("REPO", 380, h / 2 + 6);
+    });
+
+    // ---------- 地面 ----------
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({ map: cobble, roughness: .92, metalness: 0 }));
+    ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+    // ---------- 中央仓库塔 ----------
+    const tower = new THREE.Group(); tower.position.set(0, 0, -4); scene.add(tower);
+    const stoneMat = new THREE.MeshStandardMaterial({ map: stone, roughness: .85, color: 0xbfb3a5 });
+    const base = new THREE.Mesh(new THREE.BoxGeometry(2.6, 5.2, 2.6), stoneMat); base.position.y = 2.6; base.castShadow = base.receiveShadow = true; tower.add(base);
+    stone.repeat.set(2, 4);
+    const winMat = new THREE.MeshStandardMaterial({ color: 0x000000, emissive: 0xffffff, emissiveMap: windowsTex(4, 8, .8), emissiveIntensity: 0, transparent: true, opacity: .98 });
+    for (let i = 0; i < 4; i++) { const p = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 4.4), winMat); p.position.set(Math.sin(i * Math.PI / 2) * 1.31, 2.7, Math.cos(i * Math.PI / 2) * 1.31); p.rotation.y = i * Math.PI / 2; tower.add(p); }
+    const roof = new THREE.Mesh(new THREE.ConeGeometry(2.1, 1.4, 4), new THREE.MeshStandardMaterial({ color: 0x2b2f36, roughness: .6, metalness: .3 }));
+    roof.position.y = 5.9; roof.rotation.y = Math.PI / 4; roof.castShadow = true; tower.add(roof);
+    const signMat = new THREE.MeshStandardMaterial({ map: signTex, emissive: 0xffffff, emissiveMap: signTex, emissiveIntensity: 0, roughness: .4 });
+    const sign = new THREE.Mesh(new THREE.BoxGeometry(2.4, .9, .12), [stoneMat, stoneMat, stoneMat, stoneMat, signMat, stoneMat]); sign.position.set(0, 4.6, 1.42); tower.add(sign);
+    const beacon = new THREE.Mesh(new THREE.SphereGeometry(.22, 24, 16), new THREE.MeshStandardMaterial({ color: 0x66d4f2, emissive: 0x66d4f2, emissiveIntensity: 0 }));
+    beacon.position.y = 6.8; tower.add(beacon);
+    const towerLight = new THREE.PointLight(0x66d4f2, 0, 10, 2); towerLight.position.set(0, 7.8, 0); tower.add(towerLight);
+    const doorLight = new THREE.PointLight(0xffb15a, 18, 9, 1.8); doorLight.position.set(0, 1.4, 2.2); doorLight.castShadow = true; doorLight.shadow.mapSize.set(1024, 1024); tower.add(doorLight);
+
+    // ---------- 小屋与 Agent 小人 ----------
+    const houses = [];
+    const SPOTS = [[-3.4, 0.2], [3.3, 0.9], [-2.6, 4.0], [3.0, 4.8], [-3.6, 7.6], [1.6, 8.6]];
+    const N = SPOTS.length;
+    for (let i = 0; i < N; i++) {
+      const g = new THREE.Group(); g.position.set(SPOTS[i][0], 0, SPOTS[i][1]); g.rotation.y = (SPOTS[i][0] > 0 ? -1 : 1) * (0.35 + rnd() * 0.25); scene.add(g);
+      const wall = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.5, 1.6), new THREE.MeshStandardMaterial({ color: new THREE.Color().setHSL(.07 + rnd() * .05, .25, .42 + rnd() * .1), roughness: .9 }));
+      wall.position.y = .75; wall.castShadow = wall.receiveShadow = true; g.add(wall);
+      const rf = new THREE.Mesh(new THREE.ConeGeometry(1.45, .9, 4), new THREE.MeshStandardMaterial({ color: new THREE.Color().setHSL(.02 + rnd() * .04, .35, .22), roughness: .8 }));
+      rf.position.y = 1.95; rf.rotation.y = Math.PI / 4; rf.castShadow = true; g.add(rf);
+      const wm = new THREE.MeshStandardMaterial({ color: 0x14100c, emissive: 0xffb25e, emissiveIntensity: 0 });
+      [-.45, .45].forEach((x) => { const w = new THREE.Mesh(new THREE.PlaneGeometry(.38, .42), wm); w.position.set(x, .9, .81); g.add(w); });
+      const pl = new THREE.PointLight(0xffa64d, 0, 4.5, 2); pl.position.set(0, .9, 1.3); g.add(pl);
+      // 原创小人：圆润陶土身体 + 圆头 + 头顶青色指示灯（表示 Agent）
+      const fig = new THREE.Group(); fig.position.set(.15, 0, 1.45); fig.userData.s = 1.7; g.add(fig);
+      const clay = new THREE.MeshStandardMaterial({ color: 0xd9c7ae, roughness: .75 });
+      const body = new THREE.Mesh(new THREE.CapsuleGeometry(.16, .26, 6, 16), clay); body.position.y = .32; body.castShadow = true; fig.add(body);
+      const head = new THREE.Mesh(new THREE.SphereGeometry(.15, 24, 16), clay); head.position.y = .7; head.castShadow = true; fig.add(head);
+      const ant = new THREE.Mesh(new THREE.SphereGeometry(.045, 12, 8), new THREE.MeshStandardMaterial({ color: 0x66d4f2, emissive: 0x66d4f2, emissiveIntensity: .4 })); ant.position.y = .9; fig.add(ant);
+      const ring = new THREE.Mesh(new THREE.RingGeometry(.2, .26, 48), new THREE.MeshBasicMaterial({ color: 0x66d4f2, transparent: true, opacity: 0, side: THREE.DoubleSide }));
+      ring.rotation.x = -Math.PI / 2; ring.position.set(.15, .02, 1.45); g.add(ring);
+      // 包裹飞行曲线：塔顶 → 小屋门口
+      const end = new THREE.Vector3(); fig.getWorldPosition(end); end.y = .75;
+      const start = new THREE.Vector3(0, 6.6, -4), mid = start.clone().lerp(end, .5); mid.y = 8.2 + rnd() * 1.2;
+      const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+      const pkgs = [0, 1, 2, 3].map((k) => { const m = new THREE.Mesh(new THREE.BoxGeometry(.28, .28, .28), new THREE.MeshStandardMaterial({ color: 0x0c2a33, emissive: 0x66d4f2, emissiveIntensity: k ? 1.6 / (k + 1) : 2.4, transparent: true, opacity: k ? .5 / k : 1 })); scene.add(m); return m; });
+      const arc = new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(60)), new THREE.LineBasicMaterial({ color: 0x66d4f2, transparent: true, opacity: 0 })); scene.add(arc);
+      houses.push({ g, wm, pl, fig, ant, ring, curve, pkgs, arc, launch: 0.85 + i * 0.42 });
+    }
+    // 路灯
+    [[-1.2, 2.4], [1.4, 6.6], [-1.0, 10.5], [2.2, -1.4]].forEach(([x, z]) => {
+      const post = new THREE.Mesh(new THREE.CylinderGeometry(.04, .05, 1.8, 8), new THREE.MeshStandardMaterial({ color: 0x1d1f22, metalness: .6, roughness: .4 })); post.position.set(x, .9, z); scene.add(post);
+      const bulb = new THREE.Mesh(new THREE.SphereGeometry(.1, 16, 10), new THREE.MeshStandardMaterial({ color: 0xffc77a, emissive: 0xffb45a, emissiveIntensity: 3 })); bulb.position.set(x, 1.85, z); scene.add(bulb);
+      const l = new THREE.PointLight(0xffb15a, 6, 6, 1.8); l.position.set(x, 1.8, z); scene.add(l); });
+    // 环境光与月光
+    scene.add(new THREE.HemisphereLight(0x4a5a7a, 0x1a120a, .9));
+    const moon = new THREE.DirectionalLight(0x9fb8ff, .9); moon.position.set(-8, 14, 6); moon.castShadow = true;
+    moon.shadow.mapSize.set(2048, 2048); Object.assign(moon.shadow.camera, { left: -12, right: 12, top: 16, bottom: -16, near: 1, far: 50 }); moon.shadow.bias = -0.0004; scene.add(moon);
+    // 漂浮微尘（种子固定）
+    const NP = 380, pp = new Float32Array(NP * 3), base0 = [];
+    for (let i = 0; i < NP; i++) { base0.push([(rnd() - .5) * 22, rnd() * 9, (rnd() - .5) * 22, rnd() * 6.28]); }
+    const dustG = new THREE.BufferGeometry(); dustG.setAttribute("position", new THREE.BufferAttribute(pp, 3));
+    scene.add(new THREE.Points(dustG, new THREE.PointsMaterial({ color: 0xffd9a0, size: .05, transparent: true, opacity: .55, depthWrite: false })));
+
+    // ---------- 后期：移轴景深 + 泛光 ----------
+    const composer = new EffectComposer(renderer); composer.setPixelRatio(1); composer.setSize(W, H);
+    composer.addPass(new RenderPass(scene, camera));
+    const bokeh = new BokehPass(scene, camera, { focus: 10, aperture: 0.0016, maxblur: 0.012 }); composer.addPass(bokeh);
+    composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.6, 0.5, 0.72));
+    composer.addPass(new OutputPass());
+
+    const look = new THREE.Vector3(), tmp = new THREE.Vector3();
+    function renderAt(t) {
+      // 镜头：从塔顶近景拉远、侧移，揭示整座小镇
+      const k = ease(t / DUR);
+      camera.position.set(THREE.MathUtils.lerp(1.6, 2.2, k), THREE.MathUtils.lerp(9.2, 16.5, k), THREE.MathUtils.lerp(6.0, 18.5, k));
+      look.set(0, THREE.MathUtils.lerp(4.2, 0.6, k), THREE.MathUtils.lerp(-4, 2.6, k)); camera.lookAt(look);
+      bokeh.uniforms.focus.value = camera.position.distanceTo(look);
+      // 塔亮起
+      const on = ease(t / 0.8);
+      winMat.emissiveIntensity = 1.6 * on; signMat.emissiveIntensity = 1.1 * on; beacon.material.emissiveIntensity = 1.8 * on * (0.85 + 0.15 * Math.sin(t * 6));
+      towerLight.intensity = 5 * on;
+      houses.forEach((h) => {
+        const fl = 1.25, p = (t - h.launch) / fl;
+        h.arc.material.opacity = 0.35 * clamp((t - h.launch + .25) / .3) * (1 - clamp((t - h.launch - fl - .2) / .5));
+        h.pkgs.forEach((m, j) => { const q = clamp(p - j * 0.035); const vis = p > 0 && p < 1 + j * .035;
+          m.visible = vis; if (vis) { h.curve.getPoint(ease(q), m.position); m.rotation.set(q * 6, q * 9, 0); } });
+        const arr = clamp((t - h.launch - fl) / .5);   // 到达后 0→1
+        h.wm.emissiveIntensity = 2.2 * ease(arr); h.pl.intensity = 7 * ease(arr);
+        const b = t > h.launch + fl ? outBack(clamp((t - h.launch - fl) / .45)) : 1; h.fig.scale.setScalar(1.7 * (t > h.launch + fl ? 0.85 + 0.15 * b : 1));
+        h.ant.material.emissiveIntensity = .4 + 3 * ease(arr);
+        const rp = clamp((t - h.launch - fl) / .7); h.ring.scale.setScalar(1 + rp * 4); h.ring.material.opacity = rp > 0 && rp < 1 ? .9 * (1 - rp) : 0;
+      });
+      for (let i = 0; i < NP; i++) { const [x, y, z, ph] = base0[i]; pp[i * 3] = x + Math.sin(t * .4 + ph) * .3; pp[i * 3 + 1] = (y + t * .12) % 9; pp[i * 3 + 2] = z + Math.cos(t * .3 + ph) * .3; }
+      dustG.attributes.position.needsUpdate = true;
+      composer.render();
+    }
+    window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
+    renderAt(window.__hfThreeTime || 0);
+  </script>
+</body>
+</html>

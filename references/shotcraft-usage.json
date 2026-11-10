@@ -1,0 +1,3547 @@
+{
+  "schema_version": 1,
+  "source": {
+    "root": "../../video-shotcraft",
+    "repository": "https://github.com/Vincentwei1021/video-shotcraft",
+    "commit": "1266a3ec4831289c4d893d42dd5102723658039a",
+    "library": "gallery/api/library.json",
+    "library_revision": "bdd94be16d60fa8f"
+  },
+  "counts": {
+    "cards": 124,
+    "styles": 150,
+    "previews": 150
+  },
+  "conventions": {
+    "paths": "Paths on each style are relative to source.root; source.root is relative to this JSON.",
+    "preferred_implementation": "A suggested production route, not a claim of completed adaptation.",
+    "validation": "reference-only: source reference; adapted: project authored; rendered: output reviewed for the recorded layout and project only.",
+    "source_selection": "recipe-alternatives requires choosing and recording the actual implementation before production."
+  },
+  "styles": [
+    {
+      "card": "assemble-then-type-flyin",
+      "style": "assemble-then-type-flyin",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "定位重点",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/assemble-then-type-flyin.md",
+      "implementation_sources": [
+        "demos/effects/assemble-then-type-flyin/AssembleThenTypeFlyin.tsx"
+      ],
+      "preview": "gallery/media/assemble-then-type-flyin.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "aurora-bloom-bg-flip",
+      "style": "aurora-bloom-bg-flip",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/effects/aurora-bloom-bg-flip.md",
+      "implementation_sources": [
+        "demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx"
+      ],
+      "preview": "gallery/media/aurora-bloom-bg-flip.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "autolayout-gap-dial",
+      "style": "autolayout-gap-dial",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "真实页面",
+        "前后对比",
+        "路径关系",
+        "定位重点"
+      ],
+      "recipe": "references/shots/interaction/autolayout-gap-dial.md",
+      "implementation_sources": [
+        "demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx"
+      ],
+      "preview": "gallery/media/autolayout-gap-dial.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "avatar-bracket-carousel",
+      "style": "avatar-bracket-carousel",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示"
+      ],
+      "recipe": "references/shots/ui-entrance/avatar-bracket-carousel.md",
+      "implementation_sources": [
+        "demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx"
+      ],
+      "preview": "gallery/media/avatar-bracket-carousel.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "basic-3d-scene",
+      "style": "basic-3d-scene",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "章节交接",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/basic-3d-scene.md",
+      "implementation_sources": [
+        "demos/camera/basic-3d-scene/Basic3DScene.tsx"
+      ],
+      "preview": "gallery/media/basic-3d-scene.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "beat-cut-moves",
+      "style": "paparazzi-flash",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇"
+      ],
+      "recipe": "references/shots/rhythm/beat-cut-moves.md",
+      "implementation_sources": [
+        "demos/rhythm/beat-cut-moves/PaparazziFlash.tsx"
+      ],
+      "preview": "gallery/media/paparazzi-flash.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "beat-step-list-theme-cycle",
+      "style": "beat-step-list-theme-cycle",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇",
+        "前后对比"
+      ],
+      "recipe": "references/shots/rhythm/beat-step-list-theme-cycle.md",
+      "implementation_sources": [
+        "demos/rhythm/beat-step-list-theme-cycle/BeatStepListThemeCycle.tsx"
+      ],
+      "preview": "gallery/media/beat-step-list-theme-cycle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "before-after-slider-scrub",
+      "style": "before-after-slider-scrub",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "前后对比"
+      ],
+      "recipe": "references/shots/data/before-after-slider-scrub.md",
+      "implementation_sources": [
+        "demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx"
+      ],
+      "preview": "gallery/media/before-after-slider-scrub.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "bezier-source-converge-merge",
+      "style": "bezier-source-converge-merge",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "资料汇聚",
+        "增长变化",
+        "路径关系",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/ui-entrance/bezier-source-converge-merge.md",
+      "implementation_sources": [
+        "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx"
+      ],
+      "preview": "gallery/media/bezier-source-converge-merge.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "blur-slide",
+      "style": "blur-slide",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "章节交接"
+      ],
+      "recipe": "references/shots/typography/blur-slide.md",
+      "implementation_sources": [
+        "demos/typography/blur-slide/BlurSlide.tsx"
+      ],
+      "preview": "gallery/media/blur-slide.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "bottom-push-stack-wipe",
+      "style": "bottom-push-stack-wipe",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "章节交接"
+      ],
+      "recipe": "references/shots/transition/bottom-push-stack-wipe.md",
+      "implementation_sources": [
+        "demos/transition/bottom-push-stack-wipe/BottomPushStackWipe.tsx"
+      ],
+      "preview": "gallery/media/bottom-push-stack-wipe.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "brace-expand",
+      "style": "brace-expand",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "章节交接"
+      ],
+      "recipe": "references/shots/typography/brace-expand.md",
+      "implementation_sources": [
+        "demos/typography/brace-expand/BraceExpand.tsx"
+      ],
+      "preview": "gallery/media/brace-expand.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "brand-frame-snap",
+      "style": "brand-frame-snap",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "章节交接",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/effects/brand-frame-snap.md",
+      "implementation_sources": [
+        "demos/effects/brand-frame-snap/BrandFrameSnap.tsx"
+      ],
+      "preview": "gallery/media/brand-frame-snap.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "brand-ink-open",
+      "style": "brand-ink-open",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/opening/brand-ink-open.md",
+      "implementation_sources": [
+        "demos/typography/brand-ink-open/BrandInkOpen.tsx"
+      ],
+      "preview": "gallery/media/brand-ink-open.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "canvas-materialize-moves",
+      "style": "panel-to-canvas",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/canvas-materialize-moves.md",
+      "implementation_sources": [
+        "demos/interaction/canvas-materialize-moves/PanelToCanvasMaterialize.tsx"
+      ],
+      "preview": "gallery/media/panel-to-canvas.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "canvas-materialize-moves",
+      "style": "diagram-cascade",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/canvas-materialize-moves.md",
+      "implementation_sources": [
+        "demos/interaction/canvas-materialize-moves/DiagramCascadeBuild.tsx"
+      ],
+      "preview": "gallery/media/diagram-cascade.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "card-flip-reveal",
+      "style": "card-flip-reveal",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面",
+        "路径关系",
+        "立体空间"
+      ],
+      "recipe": "references/shots/transition/card-flip-reveal.md",
+      "implementation_sources": [
+        "demos/transition/card-flip-reveal/CardFlipReveal.tsx"
+      ],
+      "preview": "gallery/media/card-flip-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "card-flock-tumble",
+      "style": "card-flock-tumble",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/transition/card-flock-tumble.md",
+      "implementation_sources": [
+        "demos/transition/card-flock-tumble/CardFlockTumble.tsx"
+      ],
+      "preview": "gallery/media/card-flock-tumble.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "card-stack",
+      "style": "card-stack",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "数量构成",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/ui-entrance/card-stack.md",
+      "implementation_sources": [
+        "demos/ui-entrance/card-stack/CardStack.tsx"
+      ],
+      "preview": "gallery/media/card-stack.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "carousel-3d",
+      "style": "carousel-3d",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示"
+      ],
+      "recipe": "references/shots/ui-entrance/carousel-3d.md",
+      "implementation_sources": [
+        "demos/ui-entrance/carousel-3d/Carousel3D.tsx"
+      ],
+      "preview": "gallery/media/carousel-3d.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "chart-live-moves",
+      "style": "oscilloscope-stream",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "章节交接",
+        "数量构成",
+        "增长变化"
+      ],
+      "recipe": "references/shots/data/chart-live-moves.md",
+      "implementation_sources": [
+        "demos/data/chart-live-moves/OscilloscopeStreamV2.tsx"
+      ],
+      "preview": "gallery/media/oscilloscope-stream.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "chart-live-moves",
+      "style": "unit-dot-swarm-regroup",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "章节交接",
+        "数量构成",
+        "增长变化"
+      ],
+      "recipe": "references/shots/data/chart-live-moves.md",
+      "implementation_sources": [
+        "demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx"
+      ],
+      "preview": "gallery/media/unit-dot-swarm-regroup.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "chart-live-moves",
+      "style": "axis-rescale-shock",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "章节交接",
+        "数量构成",
+        "增长变化"
+      ],
+      "recipe": "references/shots/data/chart-live-moves.md",
+      "implementation_sources": [
+        "demos/data/chart-live-moves/AxisRescaleShockV2.tsx"
+      ],
+      "preview": "gallery/media/axis-rescale-shock.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "chip-grid-single-select-blackout",
+      "style": "chip-grid-single-select-blackout",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "真实页面",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/chip-grid-single-select-blackout.md",
+      "implementation_sources": [
+        "demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx"
+      ],
+      "preview": "gallery/media/chip-grid-single-select-blackout.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "circle-match-iris",
+      "style": "circle-match-iris",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面"
+      ],
+      "recipe": "references/shots/transition/circle-match-iris.md",
+      "implementation_sources": [
+        "demos/transition/circle-match-iris/CircleMatchIris.tsx"
+      ],
+      "preview": "gallery/media/circle-match-iris.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "cloner-depth-echo",
+      "style": "cloner-depth-echo",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "立体空间"
+      ],
+      "recipe": "references/shots/ui-entrance/cloner-depth-echo.md",
+      "implementation_sources": [
+        "demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx"
+      ],
+      "preview": "gallery/media/cloner-depth-echo.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "collab-cursor-moves",
+      "style": "cast-ensemble",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化"
+      ],
+      "recipe": "references/shots/interaction/collab-cursor-moves.md",
+      "implementation_sources": [
+        "demos/interaction/collab-cursor-moves/CursorCastEnsemble.tsx"
+      ],
+      "preview": "gallery/media/cast-ensemble.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "countdown-arc-scatter",
+      "style": "countdown-arc-scatter",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/countdown-arc-scatter.md",
+      "implementation_sources": [
+        "demos/typography/countdown-arc-scatter/CountdownArcScatter.tsx"
+      ],
+      "preview": "gallery/media/countdown-arc-scatter.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "crane-rise-reveal",
+      "style": "crane-rise-reveal",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立"
+      ],
+      "recipe": "references/shots/opening/crane-rise-reveal.md",
+      "implementation_sources": [
+        "demos/opening/crane-rise-reveal/CraneRiseReveal.tsx"
+      ],
+      "preview": "gallery/media/crane-rise-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "crash-zoom-punch",
+      "style": "crash-zoom-punch",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系"
+      ],
+      "recipe": "references/shots/camera/crash-zoom-punch.md",
+      "implementation_sources": [
+        "demos/camera/crash-zoom-punch/CrashImpactReal.tsx",
+        "demos/camera/crash-zoom-punch/CrashZoomReal.tsx"
+      ],
+      "preview": "gallery/media/crash-zoom-punch.mp4",
+      "source_selection": "recipe-alternatives",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "cursor-flyover",
+      "style": "cursor-flyover",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/cursor-flyover.md",
+      "implementation_sources": [
+        "demos/camera/cursor-flyover/CursorFlyover.tsx"
+      ],
+      "preview": "gallery/media/cursor-flyover.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "dataviz-landscape-open",
+      "style": "dataviz-landscape-open",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "资料汇聚",
+        "真实页面",
+        "路径关系",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/opening/dataviz-landscape-open.md",
+      "implementation_sources": [
+        "demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx"
+      ],
+      "preview": "gallery/media/dataviz-landscape-open.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "deck-deal-flyin",
+      "style": "deck-deal-flyin",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "资料汇聚",
+        "真实页面"
+      ],
+      "recipe": "references/shots/ui-entrance/deck-deal-flyin.md",
+      "implementation_sources": [
+        "demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx"
+      ],
+      "preview": "gallery/media/deck-deal-flyin.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "depth-layer-moves",
+      "style": "multiplane",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/depth-layer-moves.md",
+      "implementation_sources": [
+        "demos/camera/depth-layer-moves/MultiplaneReal.tsx"
+      ],
+      "preview": "gallery/media/multiplane.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "doc-park-left-pill-deal",
+      "style": "doc-park-left-pill-deal",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "资料汇聚"
+      ],
+      "recipe": "references/shots/ui-entrance/doc-park-left-pill-deal.md",
+      "implementation_sources": [
+        "demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx"
+      ],
+      "preview": "gallery/media/doc-park-left-pill-deal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "document-typewriter-reveal",
+      "style": "document-typewriter-reveal",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "真实页面"
+      ],
+      "recipe": "references/shots/typography/document-typewriter-reveal.md",
+      "implementation_sources": [
+        "demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx"
+      ],
+      "preview": "gallery/media/document-typewriter-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "draw-svg-trace",
+      "style": "draw-svg-trace",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示"
+      ],
+      "recipe": "references/shots/ui-entrance/draw-svg-trace.md",
+      "implementation_sources": [
+        "demos/ui-entrance/draw-svg-trace/DrawSvgTrace.tsx"
+      ],
+      "preview": "gallery/media/draw-svg-trace.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "element-body-moves",
+      "style": "contact-shadow-lift",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示"
+      ],
+      "recipe": "references/shots/ui-entrance/element-body-moves.md",
+      "implementation_sources": [
+        "demos/ui-entrance/element-body-moves/ContactShadowLift.tsx"
+      ],
+      "preview": "gallery/media/contact-shadow-lift.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "flying-words",
+      "style": "flying-words",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "增长变化"
+      ],
+      "recipe": "references/shots/typography/flying-words.md",
+      "implementation_sources": [
+        "demos/typography/flying-words/FlyingWords.tsx"
+      ],
+      "preview": "gallery/media/flying-words.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "fracture",
+      "style": "fracture",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/opening/fracture.md",
+      "implementation_sources": [
+        "demos/opening/fracture/Fracture.tsx"
+      ],
+      "preview": "gallery/media/fracture.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "fui-hud-moves",
+      "style": "reticle-lock-on",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "定位重点"
+      ],
+      "recipe": "references/shots/effects/fui-hud-moves.md",
+      "implementation_sources": [
+        "demos/effects/fui-hud-moves/ReticleLockOn.tsx"
+      ],
+      "preview": "gallery/media/reticle-lock-on.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "gauge-readout-moves",
+      "style": "needle-sweep-selftest",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比"
+      ],
+      "recipe": "references/shots/data/gauge-readout-moves.md",
+      "implementation_sources": [
+        "demos/data/gauge-readout-moves/NeedleSweepSelftest.tsx"
+      ],
+      "preview": "gallery/media/needle-sweep-selftest.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "gauge-readout-moves",
+      "style": "tape-scroll-fixed-pointer",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比"
+      ],
+      "recipe": "references/shots/data/gauge-readout-moves.md",
+      "implementation_sources": [
+        "demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx"
+      ],
+      "preview": "gallery/media/tape-scroll-fixed-pointer.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "glass-pill-dictation-typing",
+      "style": "glass-pill-dictation-typing",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化"
+      ],
+      "recipe": "references/shots/interaction/glass-pill-dictation-typing.md",
+      "implementation_sources": [
+        "demos/interaction/glass-pill-dictation-typing/GlassPillDictationTyping.tsx"
+      ],
+      "preview": "gallery/media/glass-pill-dictation-typing.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "glitch-cycle",
+      "style": "glitch-cycle",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/glitch-cycle.md",
+      "implementation_sources": [
+        "demos/typography/glitch-cycle/GlitchCycle.tsx"
+      ],
+      "preview": "gallery/media/glitch-cycle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "glow-flyline-moves",
+      "style": "glow-orb-ambient",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/glow-flyline-moves.md",
+      "implementation_sources": [
+        "demos/effects/glow-flyline-moves/GlowOrbAmbient.tsx"
+      ],
+      "preview": "gallery/media/glow-orb-ambient.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "glow-flyline-moves",
+      "style": "flyline-arc",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/glow-flyline-moves.md",
+      "implementation_sources": [
+        "demos/effects/glow-flyline-moves/FlylineArc.tsx"
+      ],
+      "preview": "gallery/media/flyline-arc.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "glow-flyline-moves",
+      "style": "orb-flyline-relay",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/glow-flyline-moves.md",
+      "implementation_sources": [
+        "demos/effects/glow-flyline-moves/OrbFlylineRelay.tsx"
+      ],
+      "preview": "gallery/media/orb-flyline-relay.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "gradient-transition",
+      "style": "gradient-transition",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "章节交接"
+      ],
+      "recipe": "references/shots/transition/gradient-transition.md",
+      "implementation_sources": [
+        "demos/transition/gradient-transition/GradientTransition.tsx"
+      ],
+      "preview": "gallery/media/gradient-transition.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "gradient-word-sweep",
+      "style": "gradient-word-sweep",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/typography/gradient-word-sweep.md",
+      "implementation_sources": [
+        "demos/typography/gradient-word-sweep/GradientWordSweep.tsx"
+      ],
+      "preview": "gallery/media/gradient-word-sweep.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "grain-dissolve",
+      "style": "grain-dissolve",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/grain-dissolve.md",
+      "implementation_sources": [
+        "demos/outro/grain-dissolve/GrainDissolve.tsx"
+      ],
+      "preview": "gallery/media/grain-dissolve.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "graze-face-tour",
+      "style": "graze-face-tour",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/graze-face-tour.md",
+      "implementation_sources": [
+        "demos/camera/graze-face-tour/GrazeFaceTour.tsx"
+      ],
+      "preview": "gallery/media/graze-face-tour.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "hashtag-to-pill-materialize",
+      "style": "hashtag-to-pill-materialize",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "真实页面"
+      ],
+      "recipe": "references/shots/interaction/hashtag-to-pill-materialize.md",
+      "implementation_sources": [
+        "demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx"
+      ],
+      "preview": "gallery/media/hashtag-to-pill-materialize.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "icon-field-colorize",
+      "style": "icon-field-colorize",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "数量构成",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/opening/icon-field-colorize.md",
+      "implementation_sources": [
+        "demos/opening/icon-field-colorize/IconFieldColorize.tsx"
+      ],
+      "preview": "gallery/media/icon-field-colorize.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "icon-performance-moves",
+      "style": "attention-bounce",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/icon-performance-moves.md",
+      "implementation_sources": [
+        "demos/effects/icon-performance-moves/AttentionBounce.tsx"
+      ],
+      "preview": "gallery/media/attention-bounce.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "impact-feedback",
+      "style": "hit-counter",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "数量构成"
+      ],
+      "recipe": "references/shots/effects/impact-feedback.md",
+      "implementation_sources": [
+        "demos/effects/impact-feedback/HitCounter.tsx"
+      ],
+      "preview": "gallery/media/hit-counter.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "impact-feedback",
+      "style": "anime-impact",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "数量构成"
+      ],
+      "recipe": "references/shots/effects/impact-feedback.md",
+      "implementation_sources": [
+        "demos/effects/impact-feedback/AnimeImpact.tsx"
+      ],
+      "preview": "gallery/media/anime-impact.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "integration-hub-map",
+      "style": "integration-hub-map",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面"
+      ],
+      "recipe": "references/shots/ui-entrance/integration-hub-map.md",
+      "implementation_sources": [
+        "demos/ui-entrance/integration-hub-map/IntegrationHubMap.tsx"
+      ],
+      "preview": "gallery/media/integration-hub-map.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "lead-word-zoom-assemble",
+      "style": "lead-word-zoom-assemble",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "增长变化",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/typography/lead-word-zoom-assemble.md",
+      "implementation_sources": [
+        "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx"
+      ],
+      "preview": "gallery/media/lead-word-zoom-assemble.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "letterspace-materialize",
+      "style": "letterspace-materialize",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "章节交接",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/opening/letterspace-materialize.md",
+      "implementation_sources": [
+        "demos/opening/letterspace-materialize/LetterspaceMaterialize.tsx"
+      ],
+      "preview": "gallery/media/letterspace-materialize.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "light-play-moves",
+      "style": "spotlight-sweep",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/light-play-moves.md",
+      "implementation_sources": [
+        "demos/effects/light-play-moves/SpotlightSweepReveal.tsx"
+      ],
+      "preview": "gallery/media/spotlight-sweep.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "light-play-moves",
+      "style": "sheen-sweep",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/light-play-moves.md",
+      "implementation_sources": [
+        "demos/effects/light-play-moves/SheenSweepRetry.tsx"
+      ],
+      "preview": "gallery/media/sheen-sweep.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "line-carry-transition",
+      "style": "line-carry-transition",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/line-carry-transition.md",
+      "implementation_sources": [
+        "demos/transition/line-carry-transition/LineCarryTransition.tsx"
+      ],
+      "preview": "gallery/media/line-carry-transition.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "list-reveal",
+      "style": "list-reveal",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面"
+      ],
+      "recipe": "references/shots/ui-entrance/list-reveal.md",
+      "implementation_sources": [
+        "demos/ui-entrance/list-reveal/ListReveal.tsx"
+      ],
+      "preview": "gallery/media/list-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "list-stack-press",
+      "style": "list-stack-press",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "数量构成"
+      ],
+      "recipe": "references/shots/ui-entrance/list-stack-press.md",
+      "implementation_sources": [
+        "demos/ui-entrance/list-stack-press/ListStackPress.tsx"
+      ],
+      "preview": "gallery/media/list-stack-press.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "logo-shrink-wordmark-lockup",
+      "style": "logo-shrink-wordmark-lockup",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/logo-shrink-wordmark-lockup.md",
+      "implementation_sources": [
+        "demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx"
+      ],
+      "preview": "gallery/media/logo-shrink-wordmark-lockup.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "magician-card-flourish",
+      "style": "magician-card-flourish",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立"
+      ],
+      "recipe": "references/shots/opening/magician-card-flourish.md",
+      "implementation_sources": [
+        "demos/opening/magician-card-flourish/MagicianCardFlourish.tsx"
+      ],
+      "preview": "gallery/media/magician-card-flourish.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "marker-underline-title",
+      "style": "marker-underline-title",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束",
+        "定位重点"
+      ],
+      "recipe": "references/shots/typography/marker-underline-title.md",
+      "implementation_sources": [
+        "demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx"
+      ],
+      "preview": "gallery/media/marker-underline-title.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "mosaic-reframe",
+      "style": "mosaic-reframe",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "资料汇聚",
+        "增长变化",
+        "路径关系",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/transition/mosaic-reframe.md",
+      "implementation_sources": [
+        "demos/transition/mosaic-reframe/MosaicReframe.tsx"
+      ],
+      "preview": "gallery/media/mosaic-reframe.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "neon-frame-forerun",
+      "style": "neon-frame-forerun",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/ui-entrance/neon-frame-forerun.md",
+      "implementation_sources": [
+        "demos/ui-entrance/neon-frame-forerun/NeonFrameForerun.tsx"
+      ],
+      "preview": "gallery/media/neon-frame-forerun.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "neon-frame-orbit-drop",
+      "style": "neon-frame-orbit-drop",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面"
+      ],
+      "recipe": "references/shots/ui-entrance/neon-frame-orbit-drop.md",
+      "implementation_sources": [
+        "demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx"
+      ],
+      "preview": "gallery/media/neon-frame-orbit-drop.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "neon-triple-marquee",
+      "style": "neon-triple-marquee",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "真实页面"
+      ],
+      "recipe": "references/shots/outro/neon-triple-marquee.md",
+      "implementation_sources": [
+        "demos/outro/neon-triple-marquee/NeonTripleMarquee.tsx"
+      ],
+      "preview": "gallery/media/neon-triple-marquee.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "orbit-ring-title-open",
+      "style": "orbit-ring-title-open",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "真实页面"
+      ],
+      "recipe": "references/shots/opening/orbit-ring-title-open.md",
+      "implementation_sources": [
+        "demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx"
+      ],
+      "preview": "gallery/media/orbit-ring-title-open.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "outline-word-fill",
+      "style": "outline-word-fill",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/typography/outline-word-fill.md",
+      "implementation_sources": [
+        "demos/typography/outline-word-fill/OutlineWordFill.tsx"
+      ],
+      "preview": "gallery/media/outline-word-fill.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "outro-group-photo-launch",
+      "style": "outro-group-photo-launch",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/outro-group-photo-launch.md",
+      "implementation_sources": [
+        "demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx"
+      ],
+      "preview": "gallery/media/outro-group-photo-launch.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "overhead-camera-moves",
+      "style": "tilt-reveal",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/overhead-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/overhead-camera-moves/TiltReveal.tsx"
+      ],
+      "preview": "gallery/media/tilt-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      },
+      "upstream_notes": [
+        {
+          "kind": "metadata-conflict",
+          "gallery_description": "rotateX -80°, about 43f, out-cubic",
+          "recipe_source_and_preview": "86°; 20f creep + 40f swift lift; -2.2° overshoot + 10f settle",
+          "local_sample_basis": "Recipe body, exact TiltReveal.tsx and Gallery MP4 agree. The local sample follows these and records the Gallery description conflict.",
+          "reviewed_at": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "card": "overhead-camera-moves",
+      "style": "overhead-tabletop-drop",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/overhead-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx"
+      ],
+      "preview": "gallery/media/overhead-tabletop-drop.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "page-turn-transitions",
+      "style": "barn-door-split",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面",
+        "章节交接"
+      ],
+      "recipe": "references/shots/transition/page-turn-transitions.md",
+      "implementation_sources": [
+        "demos/transition/page-turn-transitions/BarnDoorSplit.tsx"
+      ],
+      "preview": "gallery/media/barn-door-split.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "page-waterfall-wall",
+      "style": "page-waterfall-wall",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/ui-entrance/page-waterfall-wall.md",
+      "implementation_sources": [
+        "demos/ui-entrance/page-waterfall-wall/PageWaterfallWall.tsx"
+      ],
+      "preview": "gallery/media/page-waterfall-wall.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "panel-grid-moves",
+      "style": "comic-panel-split",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇",
+        "定位重点"
+      ],
+      "recipe": "references/shots/rhythm/panel-grid-moves.md",
+      "implementation_sources": [
+        "demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx"
+      ],
+      "preview": "gallery/media/comic-panel-split.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "paper-title-card",
+      "style": "paper-title-card",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "章节交接"
+      ],
+      "recipe": "references/shots/typography/paper-title-card.md",
+      "implementation_sources": [
+        "demos/typography/paper-title-card/PaperTitleCard.tsx"
+      ],
+      "preview": "gallery/media/paper-title-card.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "picker-carousel-feature-cycle",
+      "style": "picker-carousel-feature-cycle",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化"
+      ],
+      "recipe": "references/shots/interaction/picker-carousel-feature-cycle.md",
+      "implementation_sources": [
+        "demos/interaction/picker-carousel-feature-cycle/PickerCarouselFeatureCycle.tsx"
+      ],
+      "preview": "gallery/media/picker-carousel-feature-cycle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "pill-chip-slot-cycle-handled",
+      "style": "pill-chip-slot-cycle-handled",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/typography/pill-chip-slot-cycle-handled.md",
+      "implementation_sources": [
+        "demos/typography/pill-chip-slot-cycle-handled/PillChipSlotCycleHandled.tsx"
+      ],
+      "preview": "gallery/media/pill-chip-slot-cycle-handled.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "pill-slot-cycle",
+      "style": "pill-slot-cycle",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/pill-slot-cycle.md",
+      "implementation_sources": [
+        "demos/typography/pill-slot-cycle/PillSlotCycle.tsx"
+      ],
+      "preview": "gallery/media/pill-slot-cycle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "print-texture-transitions",
+      "style": "ink-bleed-reveal",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "立体空间"
+      ],
+      "recipe": "references/shots/transition/print-texture-transitions.md",
+      "implementation_sources": [
+        "demos/transition/print-texture-transitions/InkBleedReveal.tsx"
+      ],
+      "preview": "gallery/media/ink-bleed-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "product-card-progressive-assemble",
+      "style": "product-card-progressive-assemble",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "定位重点"
+      ],
+      "recipe": "references/shots/ui-entrance/product-card-progressive-assemble.md",
+      "implementation_sources": [
+        "demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx"
+      ],
+      "preview": "gallery/media/product-card-progressive-assemble.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "quad-split-parallel-scenes",
+      "style": "quad-split-parallel-scenes",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇"
+      ],
+      "recipe": "references/shots/rhythm/quad-split-parallel-scenes.md",
+      "implementation_sources": [
+        "demos/rhythm/quad-split-parallel-scenes/QuadSplitParallelScenes.tsx"
+      ],
+      "preview": "gallery/media/quad-split-parallel-scenes.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "radial-ripple-phone-chips",
+      "style": "radial-ripple-phone-chips",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/radial-ripple-phone-chips.md",
+      "implementation_sources": [
+        "demos/effects/radial-ripple-phone-chips/RadialRipplePhoneChips.tsx"
+      ],
+      "preview": "gallery/media/radial-ripple-phone-chips.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "radial-wave",
+      "style": "radial-wave",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "数量构成",
+        "路径关系",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/ui-entrance/radial-wave.md",
+      "implementation_sources": [
+        "demos/ui-entrance/radial-wave/RadialWave.tsx"
+      ],
+      "preview": "gallery/media/radial-wave.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "research-card-stack-scroll",
+      "style": "research-card-stack-scroll",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "数量构成",
+        "增长变化"
+      ],
+      "recipe": "references/shots/ui-entrance/research-card-stack-scroll.md",
+      "implementation_sources": [
+        "demos/ui-entrance/research-card-stack-scroll/ResearchCardStackScroll.tsx"
+      ],
+      "preview": "gallery/media/research-card-stack-scroll.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "rhythm-interrupt-moves",
+      "style": "jump-cut-punch-in",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇",
+        "定位重点",
+        "立体空间"
+      ],
+      "recipe": "references/shots/rhythm/rhythm-interrupt-moves.md",
+      "implementation_sources": [
+        "demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx"
+      ],
+      "preview": "gallery/media/jump-cut-punch-in.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "riso-print-hits",
+      "style": "misregistration-hit",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/riso-print-hits.md",
+      "implementation_sources": [
+        "demos/effects/riso-print-hits/RisoMisregistrationHit.tsx"
+      ],
+      "preview": "gallery/media/misregistration-hit.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "row-embed",
+      "style": "row-embed",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面"
+      ],
+      "recipe": "references/shots/ui-entrance/row-embed.md",
+      "implementation_sources": [
+        "demos/ui-entrance/row-embed/RowEmbed.tsx"
+      ],
+      "preview": "gallery/media/row-embed.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "sakuga-timing-shift",
+      "style": "sakuga-timing-shift",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇"
+      ],
+      "recipe": "references/shots/rhythm/sakuga-timing-shift.md",
+      "implementation_sources": [
+        "demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx"
+      ],
+      "preview": "gallery/media/sakuga-timing-shift.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "scan-bracket-sweep",
+      "style": "scan-bracket-sweep",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈"
+      ],
+      "recipe": "references/shots/effects/scan-bracket-sweep.md",
+      "implementation_sources": [
+        "demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx"
+      ],
+      "preview": "gallery/media/scan-bracket-sweep.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "scanline-annotate-focus",
+      "style": "scanline-annotate-focus",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "数量构成",
+        "路径关系",
+        "品牌收束",
+        "定位重点"
+      ],
+      "recipe": "references/shots/effects/scanline-annotate-focus.md",
+      "implementation_sources": [
+        "demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx"
+      ],
+      "preview": "gallery/media/scanline-annotate-focus.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "scanline-assemble-flyin",
+      "style": "scanline-assemble-flyin",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "路径关系"
+      ],
+      "recipe": "references/shots/effects/scanline-assemble-flyin.md",
+      "implementation_sources": [
+        "demos/effects/scanline-assemble-flyin/ScanlineAssembleFlyin.tsx"
+      ],
+      "preview": "gallery/media/scanline-assemble-flyin.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "scroll-brake-moves",
+      "style": "changelog-scroll-brake",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "定位重点"
+      ],
+      "recipe": "references/shots/data/scroll-brake-moves.md",
+      "implementation_sources": [
+        "demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx"
+      ],
+      "preview": "gallery/media/changelog-scroll-brake.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "scroll-brake-moves",
+      "style": "brake-reticle-lock",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比",
+        "定位重点"
+      ],
+      "recipe": "references/shots/data/scroll-brake-moves.md",
+      "implementation_sources": [
+        "demos/data/scroll-brake-moves/BrakeReticleLock.tsx"
+      ],
+      "preview": "gallery/media/brake-reticle-lock.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "segmented-thumb-hero",
+      "style": "segmented-thumb-hero",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "真实页面",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/segmented-thumb-hero.md",
+      "implementation_sources": [
+        "demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx"
+      ],
+      "preview": "gallery/media/segmented-thumb-hero.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "shot-transitions",
+      "style": "flash-cut",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/shot-transitions.md",
+      "implementation_sources": [
+        "assets/lib/FlashCut.tsx"
+      ],
+      "preview": "gallery/media/flash-cut.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "shot-transitions",
+      "style": "whip-pan",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/shot-transitions.md",
+      "implementation_sources": [
+        "demos/transition/shot-transitions/WhipBrakeReal.tsx"
+      ],
+      "preview": "gallery/media/whip-pan.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "shot-transitions",
+      "style": "mask-wipe",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面"
+      ],
+      "recipe": "references/shots/transition/shot-transitions.md",
+      "implementation_sources": [
+        "demos/transition/shot-transitions/PortalWipeV2.tsx"
+      ],
+      "preview": "gallery/media/mask-wipe.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "slam-entrance-moves",
+      "style": "kanada-perspective-snap",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "资料汇聚",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/slam-entrance-moves.md",
+      "implementation_sources": [
+        "demos/effects/slam-entrance-moves/KanadaPerspectiveSnap.tsx"
+      ],
+      "preview": "gallery/media/kanada-perspective-snap.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "slam-entrance-moves",
+      "style": "score-slam",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "资料汇聚",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/slam-entrance-moves.md",
+      "implementation_sources": [
+        "demos/effects/slam-entrance-moves/ScoreSlam.tsx"
+      ],
+      "preview": "gallery/media/score-slam.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "slam-entrance-moves",
+      "style": "impact-burst-kit",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "资料汇聚",
+        "立体空间"
+      ],
+      "recipe": "references/shots/effects/slam-entrance-moves.md",
+      "implementation_sources": [
+        "demos/effects/slam-entrance-moves/ImpactBurstKit.tsx"
+      ],
+      "preview": "gallery/media/impact-burst-kit.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "space-camera-moves",
+      "style": "exploded-view",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/space-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/space-camera-moves/ExplodedView.tsx"
+      ],
+      "preview": "gallery/media/exploded-view.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "space-camera-moves",
+      "style": "drone-dive-landing",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/space-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/space-camera-moves/DroneDiveLanding.tsx"
+      ],
+      "preview": "gallery/media/drone-dive-landing.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "speed-ramp-freeze",
+      "style": "freeze-annotate",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇",
+        "定位重点"
+      ],
+      "recipe": "references/shots/rhythm/speed-ramp-freeze.md",
+      "implementation_sources": [
+        "demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx"
+      ],
+      "preview": "gallery/media/freeze-annotate.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "spotlight-hero-card",
+      "style": "spotlight-hero-card",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "真实页面",
+        "定位重点",
+        "立体空间"
+      ],
+      "recipe": "references/shots/opening/spotlight-hero-card.md",
+      "implementation_sources": [
+        "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx"
+      ],
+      "preview": "gallery/media/spotlight-hero-card.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "style": "glow-wake-sleep-panel",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/effects/spotlight-sweep-moves.md",
+      "implementation_sources": [
+        "demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx"
+      ],
+      "preview": "gallery/media/glow-wake-sleep-panel.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "style": "slide-spotlight-pan",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/effects/spotlight-sweep-moves.md",
+      "implementation_sources": [
+        "demos/effects/spotlight-sweep-moves/SlideSpotlightPan.tsx"
+      ],
+      "preview": "gallery/media/slide-spotlight-pan.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "style": "corner-spotlight-reveal",
+      "category": "effects",
+      "usage_tags": [
+        "局部强调",
+        "视觉反馈",
+        "真实页面",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/effects/spotlight-sweep-moves.md",
+      "implementation_sources": [
+        "demos/effects/spotlight-sweep-moves/CornerSpotlightReveal.tsx"
+      ],
+      "preview": "gallery/media/corner-spotlight-reveal.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "steep-tilt-glide",
+      "style": "steep-tilt-glide",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/steep-tilt-glide.md",
+      "implementation_sources": [
+        "demos/camera/steep-tilt-glide/SteepTiltGlide.tsx"
+      ],
+      "preview": "gallery/media/steep-tilt-glide.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "stroke-segment-build",
+      "style": "stroke-segment-build",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立"
+      ],
+      "recipe": "references/shots/opening/stroke-segment-build.md",
+      "implementation_sources": [
+        "demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx"
+      ],
+      "preview": "gallery/media/stroke-segment-build.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "tear-streak-transitions",
+      "style": "glitch-displace",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面",
+        "前后对比"
+      ],
+      "recipe": "references/shots/transition/tear-streak-transitions.md",
+      "implementation_sources": [
+        "demos/transition/tear-streak-transitions/GlitchDisplace.tsx"
+      ],
+      "preview": "gallery/media/glitch-displace.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "tension-camera-moves",
+      "style": "bullet-time-freeze-orbit",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "路径关系",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/tension-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx"
+      ],
+      "preview": "gallery/media/bullet-time-freeze-orbit.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "tension-camera-moves",
+      "style": "pull-back-isolation",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "真实页面",
+        "路径关系",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/tension-camera-moves.md",
+      "implementation_sources": [
+        "demos/camera/tension-camera-moves/PullBackIsolation.tsx"
+      ],
+      "preview": "gallery/media/pull-back-isolation.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "terminal-3d",
+      "style": "terminal-3d",
+      "category": "camera",
+      "usage_tags": [
+        "运镜",
+        "空间关系",
+        "立体空间"
+      ],
+      "recipe": "references/shots/camera/terminal-3d.md",
+      "implementation_sources": [
+        "demos/camera/terminal-3d/Terminal3D.tsx"
+      ],
+      "preview": "gallery/media/terminal-3d.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "text-as-mask",
+      "style": "text-as-mask",
+      "category": "opening",
+      "usage_tags": [
+        "开场",
+        "主体建立",
+        "章节交接",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/opening/text-as-mask.md",
+      "implementation_sources": [
+        "demos/opening/text-as-mask/TextAsMask.tsx"
+      ],
+      "preview": "gallery/media/text-as-mask.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "text-column-converge",
+      "style": "text-column-converge",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/text-column-converge.md",
+      "implementation_sources": [
+        "demos/typography/text-column-converge/TextColumnConverge.tsx"
+      ],
+      "preview": "gallery/media/text-column-converge.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "theme-switch-moves",
+      "style": "theme-sweep-toggle",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/theme-switch-moves.md",
+      "implementation_sources": [
+        "demos/interaction/theme-switch-moves/ThemeSweepToggle.tsx"
+      ],
+      "preview": "gallery/media/theme-sweep-toggle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "theme-switch-moves",
+      "style": "palette-theme-ripple",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/theme-switch-moves.md",
+      "implementation_sources": [
+        "demos/interaction/theme-switch-moves/PaletteThemeRipple.tsx"
+      ],
+      "preview": "gallery/media/palette-theme-ripple.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "timeline-travel",
+      "style": "timeline-travel",
+      "category": "data",
+      "usage_tags": [
+        "数据",
+        "对比"
+      ],
+      "recipe": "references/shots/data/timeline-travel.md",
+      "implementation_sources": [
+        "demos/data/timeline-travel/TimelineTravel.tsx"
+      ],
+      "preview": "gallery/media/timeline-travel.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "title-demote-to-label",
+      "style": "title-demote-to-label",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "章节交接",
+        "定位重点",
+        "立体空间"
+      ],
+      "recipe": "references/shots/typography/title-demote-to-label.md",
+      "implementation_sources": [
+        "demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx"
+      ],
+      "preview": "gallery/media/title-demote-to-label.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "trailer-grammar-moves",
+      "style": "trailer-bumper",
+      "category": "rhythm",
+      "usage_tags": [
+        "节奏",
+        "蒙太奇"
+      ],
+      "recipe": "references/shots/rhythm/trailer-grammar-moves.md",
+      "implementation_sources": [
+        "demos/rhythm/trailer-grammar-moves/TrailerBumper.tsx"
+      ],
+      "preview": "gallery/media/trailer-bumper.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "transition-hidden-cut",
+      "style": "invisible-cut",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/transition-hidden-cut.md",
+      "implementation_sources": [
+        "demos/transition/transition-hidden-cut/InvisibleCut.tsx"
+      ],
+      "preview": "gallery/media/invisible-cut.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "transition-hidden-cut",
+      "style": "versus-slam",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/transition-hidden-cut.md",
+      "implementation_sources": [
+        "demos/transition/transition-hidden-cut/VersusSlam.tsx"
+      ],
+      "preview": "gallery/media/versus-slam.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "transition-hidden-cut",
+      "style": "light-leak-burn",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续"
+      ],
+      "recipe": "references/shots/transition/transition-hidden-cut.md",
+      "implementation_sources": [
+        "demos/transition/transition-hidden-cut/LightLeakBurn.tsx"
+      ],
+      "preview": "gallery/media/light-leak-burn.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "transition-travel",
+      "style": "letterform-zoom",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "章节交接",
+        "前后对比",
+        "立体空间"
+      ],
+      "recipe": "references/shots/transition/transition-travel.md",
+      "implementation_sources": [
+        "demos/transition/transition-travel/LetterformZoom.tsx"
+      ],
+      "preview": "gallery/media/letterform-zoom.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-and-filter",
+      "style": "type-and-filter",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "真实页面"
+      ],
+      "recipe": "references/shots/interaction/type-and-filter.md",
+      "implementation_sources": [
+        "demos/interaction/type-and-filter/TypeAndFilter.tsx"
+      ],
+      "preview": "gallery/media/type-and-filter.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-assembly-moves",
+      "style": "split-text-stagger",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "资料汇聚",
+        "增长变化",
+        "品牌收束",
+        "定位重点"
+      ],
+      "recipe": "references/shots/typography/type-assembly-moves.md",
+      "implementation_sources": [
+        "demos/typography/type-assembly-moves/SplitTextStagger.tsx"
+      ],
+      "preview": "gallery/media/split-text-stagger.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-assembly-moves",
+      "style": "drift-assembly",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "资料汇聚",
+        "增长变化",
+        "品牌收束",
+        "定位重点"
+      ],
+      "recipe": "references/shots/typography/type-assembly-moves.md",
+      "implementation_sources": [
+        "demos/typography/type-assembly-moves/LetterformDriftAssembly.tsx"
+      ],
+      "preview": "gallery/media/drift-assembly.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-assembly-moves",
+      "style": "text-on-path",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "资料汇聚",
+        "增长变化",
+        "品牌收束",
+        "定位重点"
+      ],
+      "recipe": "references/shots/typography/type-assembly-moves.md",
+      "implementation_sources": [
+        "demos/typography/type-assembly-moves/TextOnPath.tsx"
+      ],
+      "preview": "gallery/media/text-on-path.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-entrance-moves",
+      "style": "letter-drop-physics",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "资料汇聚",
+        "章节交接",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/typography/type-entrance-moves.md",
+      "implementation_sources": [
+        "demos/typography/type-entrance-moves/LetterDropPhysics.tsx"
+      ],
+      "preview": "gallery/media/letter-drop-physics.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-rhythm-sync",
+      "style": "font-weight-pump",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/type-rhythm-sync.md",
+      "implementation_sources": [
+        "demos/typography/type-rhythm-sync/FontWeightPump.tsx"
+      ],
+      "preview": "gallery/media/font-weight-pump.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "type-rhythm-sync",
+      "style": "karaoke-fill-sync",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/type-rhythm-sync.md",
+      "implementation_sources": [
+        "demos/typography/type-rhythm-sync/KaraokeFillSync.tsx"
+      ],
+      "preview": "gallery/media/karaoke-fill-sync.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "typewriter-moves",
+      "style": "error-retype",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调"
+      ],
+      "recipe": "references/shots/typography/typewriter-moves.md",
+      "implementation_sources": [
+        "demos/typography/typewriter-moves/TypewriterErrorRetype.tsx"
+      ],
+      "preview": "gallery/media/error-retype.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "ui-strip-away-outro",
+      "style": "ui-strip-away-outro",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/ui-strip-away-outro.md",
+      "implementation_sources": [
+        "demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx"
+      ],
+      "preview": "gallery/media/ui-strip-away-outro.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "ui-to-brand-morph",
+      "style": "icon-flip-bloom",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "路径关系",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/ui-to-brand-morph.md",
+      "implementation_sources": [
+        "demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx"
+      ],
+      "preview": "gallery/media/icon-flip-bloom.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "ui-to-brand-morph",
+      "style": "input-morph-assemble",
+      "category": "outro",
+      "usage_tags": [
+        "收束",
+        "落版",
+        "路径关系",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/outro/ui-to-brand-morph.md",
+      "implementation_sources": [
+        "demos/outro/ui-to-brand-morph/InputMorphsIntoLogo.tsx"
+      ],
+      "preview": "gallery/media/input-morph-assemble.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "value-stagger-gradient",
+      "style": "value-stagger-gradient",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面",
+        "前后对比"
+      ],
+      "recipe": "references/shots/ui-entrance/value-stagger-gradient.md",
+      "implementation_sources": [
+        "demos/ui-entrance/value-stagger-gradient/ValueStaggerGradient.tsx"
+      ],
+      "preview": "gallery/media/value-stagger-gradient.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "vertical-word-roll-blur-cycle",
+      "style": "vertical-word-roll-blur-cycle",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/typography/vertical-word-roll-blur-cycle.md",
+      "implementation_sources": [
+        "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx"
+      ],
+      "preview": "gallery/media/vertical-word-roll-blur-cycle.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "voice-waveform-live",
+      "style": "voice-waveform-live",
+      "category": "interaction",
+      "usage_tags": [
+        "操作",
+        "状态变化",
+        "路径关系"
+      ],
+      "recipe": "references/shots/interaction/voice-waveform-live.md",
+      "implementation_sources": [
+        "demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx"
+      ],
+      "preview": "gallery/media/voice-waveform-live.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "wall-reveal-moves",
+      "style": "bento-light-up",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/ui-entrance/wall-reveal-moves.md",
+      "implementation_sources": [
+        "demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx"
+      ],
+      "preview": "gallery/media/bento-light-up.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "wall-reveal-moves",
+      "style": "wireframe-draw-on",
+      "category": "ui-entrance",
+      "usage_tags": [
+        "素材陈列",
+        "界面展示",
+        "真实页面",
+        "数量构成",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/ui-entrance/wall-reveal-moves.md",
+      "implementation_sources": [
+        "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx"
+      ],
+      "preview": "gallery/media/wireframe-draw-on.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "white-flash-logo-simplify-cut",
+      "style": "white-flash-logo-simplify-cut",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "品牌收束"
+      ],
+      "recipe": "references/shots/transition/white-flash-logo-simplify-cut.md",
+      "implementation_sources": [
+        "demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx"
+      ],
+      "preview": "gallery/media/white-flash-logo-simplify-cut.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "wipe-transitions",
+      "style": "blinds-slice",
+      "category": "transition",
+      "usage_tags": [
+        "场景交接",
+        "对象连续",
+        "真实页面",
+        "章节交接",
+        "定位重点",
+        "立体空间"
+      ],
+      "recipe": "references/shots/transition/wipe-transitions.md",
+      "implementation_sources": [
+        "demos/transition/wipe-transitions/BlindsSlice.tsx"
+      ],
+      "preview": "gallery/media/blinds-slice.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "word-relay-filmstrip",
+      "style": "word-relay-filmstrip",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "真实页面"
+      ],
+      "recipe": "references/shots/typography/word-relay-filmstrip.md",
+      "implementation_sources": [
+        "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx"
+      ],
+      "preview": "gallery/media/word-relay-filmstrip.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "remotion-clip",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    },
+    {
+      "card": "word-relay-geometry",
+      "style": "word-relay-geometry",
+      "category": "typography",
+      "usage_tags": [
+        "中文排版",
+        "观点强调",
+        "品牌收束",
+        "立体空间"
+      ],
+      "recipe": "references/shots/typography/word-relay-geometry.md",
+      "implementation_sources": [
+        "demos/typography/word-relay-geometry/WordRelayGeometry.tsx"
+      ],
+      "preview": "gallery/media/word-relay-geometry.mp4",
+      "source_selection": "exact",
+      "preferred_implementation": "hyperframes-adapt",
+      "validation": {
+        "resources": "verified",
+        "layouts": {
+          "status": "reference-only"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "_note": "动作 → 音效类别。offset 为相对视觉峰值帧的提前量（秒）；gain 为相对人声的 dB。2026-10-03 已按参考片音轨分析校准（见 reference-audio.md）。",
+  "calibrated": true,
+  "categories": {
+    "whoosh": {
+      "use": "仅用于大幅对象位移或章节大转场（参考片的真人↔图形切换并不配 whoosh）；全片 ≤ 每分钟 1 次",
+      "dur": [
+        0.25,
+        0.6
+      ],
+      "offset": -0.12,
+      "gain": -16,
+      "files": "library/whoosh/*"
+    },
+    "swish_soft": {
+      "use": "卡片/HUD 滑入、对象缩放换位",
+      "dur": [
+        0.15,
+        0.35
+      ],
+      "offset": -0.05,
+      "gain": -20,
+      "files": "library/swish_soft/*"
+    },
+    "pop": {
+      "use": "胶囊、气泡、节点出现",
+      "dur": [
+        0.06,
+        0.15
+      ],
+      "offset": 0.0,
+      "gain": -18,
+      "files": "library/pop/*"
+    },
+    "click": {
+      "use": "UI 点击、章节导航切换、提交",
+      "dur": [
+        0.03,
+        0.1
+      ],
+      "offset": 0.0,
+      "gain": -18,
+      "files": "library/click/*"
+    },
+    "type": {
+      "use": "逐字输入（每 2–3 个字一次，随机取样）",
+      "dur": [
+        0.02,
+        0.06
+      ],
+      "offset": 0.0,
+      "gain": -24,
+      "files": "library/type/*"
+    },
+    "tick_roll": {
+      "use": "计数器滚动、柱形增长（与 progress 同长的连续 tick 串，末尾渐弱）",
+      "dur": [
+        0.6,
+        1.6
+      ],
+      "offset": 0.0,
+      "gain": -24,
+      "files": "library/tick/*"
+    },
+    "ding": {
+      "use": "打勾、完成、到达终值",
+      "dur": [
+        0.2,
+        0.6
+      ],
+      "offset": 0.0,
+      "gain": -17,
+      "files": "library/ding/*"
+    },
+    "error": {
+      "use": "红叉、错误标记、警告",
+      "dur": [
+        0.15,
+        0.4
+      ],
+      "offset": 0.0,
+      "gain": -18,
+      "files": "library/error/*"
+    },
+    "impact": {
+      "use": "仅用于全片 1–3 个高潮节点（结论、章节收束）；人物后巨字默认不配冲击音",
+      "dur": [
+        0.3,
+        1.0
+      ],
+      "offset": -0.03,
+      "gain": -10,
+      "files": "library/impact/*"
+    },
+    "riser": {
+      "use": "章节切换前铺垫、报告即将揭示",
+      "dur": [
+        0.8,
+        2.0
+      ],
+      "offset": "结束于峰值帧",
+      "gain": -22,
+      "files": "library/riser/*"
+    },
+    "scan": {
+      "use": "扫描/处理中（窗口内进度）",
+      "dur": [
+        0.5,
+        2.0
+      ],
+      "offset": 0.0,
+      "gain": -26,
+      "files": "library/scan/*"
+    },
+    "flow": {
+      "use": "流点沿管道移动",
+      "dur": [
+        0.5,
+        2.0
+      ],
+      "offset": 0.0,
+      "gain": -26,
+      "files": "library/flow/*"
+    },
+    "cut": {
+      "use": "剪刀剪断、删除片段",
+      "dur": [
+        0.1,
+        0.3
+      ],
+      "offset": 0.0,
+      "gain": -17,
+      "files": "library/cut/*"
+    },
+    "snap": {
+      "use": "磁吸闭合、卡片归位",
+      "dur": [
+        0.05,
+        0.2
+      ],
+      "offset": 0.0,
+      "gain": -19,
+      "files": "library/snap/*"
+    },
+    "ui_beep": {
+      "use": "标记、打叉、状态确认、计数结果落定（参考片标志音；≈2 次/分，勿滥用）",
+      "dur": [
+        0.3,
+        0.7
+      ],
+      "offset": 0.0,
+      "gain": -9,
+      "files": "library/ui_beep/*"
+    },
+    "glitch": {
+      "use": "错误定位、数字故障感、删除前的抖动",
+      "dur": [
+        0.1,
+        0.4
+      ],
+      "offset": 0.0,
+      "gain": -16,
+      "files": "library/glitch/*"
+    }
+  },
+  "pattern_defaults": {
+    "P01": [
+      "pop@chip"
+    ],
+    "P02": [
+      "swish_soft@shrink",
+      "tick_roll@chart",
+      "ui_beep@value_done"
+    ],
+    "P04": [
+      "click@active"
+    ],
+    "P05": [
+      "pop@label",
+      "tick_roll@bars"
+    ],
+    "P06": [
+      "ui_beep@x",
+      "ding@check"
+    ],
+    "P07": [
+      "swish_soft@enter"
+    ],
+    "P10": [
+      "whoosh@enter",
+      "pop@each_row",
+      "tick_roll@badge"
+    ],
+    "P13": [
+      "type@lines",
+      "tick_roll@counter"
+    ],
+    "P15": [
+      "swish_soft@in",
+      "scan@process",
+      "pop@out"
+    ],
+    "P16": [
+      "type@each",
+      "click@submit",
+      "pop@sources"
+    ],
+    "P19": [
+      "flow@dots",
+      "ding@filled"
+    ],
+    "P22": [
+      "ding@each_check"
+    ],
+    "P23": [
+      "swish_soft@move",
+      "pop@arrive"
+    ],
+    "P24": [
+      "tick_roll@bars",
+      "ding@end"
+    ],
+    "P28": [
+      "glitch@mark",
+      "ui_beep@mark",
+      "cut@scissors",
+      "snap@close",
+      "impact@end"
+    ],
+    "P29": [
+      "impact@stamp"
+    ],
+    "transition_live_graphic": [],
+    "P14": [
+      "ui_beep@first_mark"
+    ]
+  },
+  "density_rules": {
+    "min_gap": 0.12,
+    "max_per_second": 3,
+    "never_over_keyword": "人声重音词上不叠 impact/whoosh，避开 ±80ms",
+    "silence_ok": "阅读停留阶段允许无音效；不是每个动作都要响",
+    "target": "参考片离散音效稀疏：底乐承担节奏，音效只点重要动作。建议每分钟 8–20 个离散音效，ui_beep ≈2/分"
+  },
+  "reference_findings": {
+    "bgm": "全片连续节拍型底乐（明显低频鼓点 + 中频拨弦/键盘音），比人声低约 15.5 dB，真人段与图形段都在；是参考片“声音质感”的主体",
+    "signature_beep": "短低音（≈1.17kHz）＋持续高音（≈2.35kHz，0.25–0.86s）的提示音，全片 17 次（≈2.3 次/分），比人声低约 9 dB，出现在打叉/标记/状态确认/计数结果等节点",
+    "transitions": "真人↔图形转场处没有系统性的 whoosh（转场附近能量峰值与随机时间点无差异）",
+    "behind_text": "人物后巨字/大数字（如 21.9万）未检出明显冲击音",
+    "sparse_hits": "个别高潮处有宽频冲击/低频 boom 与 glitch（如剪辑删除段、脑内化段结尾）",
+    "limits": "仅靠分离音轨＋频谱分析，未经人耳听辨；被底乐掩盖的轻微 UI 音可能遗漏"
+  }
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>vantage-video-editing demo 9x16</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <link rel="stylesheet" href="kit.css" />
+  <link rel="stylesheet" href="fonts.css" />
+  <style>
+    body { margin: 0; background: #000; }
+    #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+    /* 分层：L0 源视频 → L2 人物后巨字 → L3 人物 alpha 层 → L4 HUD → L1 全屏图形（盖住真人） → L5 字幕 */
+    .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #l0 { z-index: 1; } #l2 { z-index: 2; } #l3 { z-index: 3; } #l4 { z-index: 4; } .graphic { z-index: 5; } #l5 { z-index: 6; }
+  </style>
+</head>
+<body>
+  <!-- 需要: assets/source.mp4（源片）, assets/person.webm（scripts/mask_to_webm.sh 生成的人物 alpha 层，与源片同帧对齐） -->
+  <div id="root" class="mu-v mu-light" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="16">
+    <video id="l0" class="full clip" src="assets/source.mp4" data-start="0" data-duration="16" data-track-index="0" muted playsinline></video>
+    <audio id="vo" src="assets/source.mp4" data-start="0" data-duration="16" data-track-index="10" data-volume="1"></audio>
+    <div id="l2" class="mu-stage"></div>
+    <video id="l3" class="full clip" src="assets/person.webm" data-start="0" data-duration="16" data-track-index="1" muted playsinline></video>
+    <div id="l4" class="mu-stage"></div>
+    <section id="g1" class="mu-stage graphic clip" data-start="3.7" data-duration="5.0" data-track-index="2"></section>
+    <div id="l5" class="mu-stage"></div>
+  </div>
+  <script src="kit.js"></script>
+  <script>
+    const { A } = MU, tl = gsap.timeline({ paused: true });
+    // ---------- 0–3.7s live+behind：人物后巨字 ----------
+    const l2 = document.getElementById("l2");
+    const gA = MU.giant(l2, { text: "开源", left: 0, top: 250, width: 1080 }); gA.style.textAlign = "center"; gA.style.fontSize = "300px";
+    A.giantIn(tl, gA, 0.4); A.out(tl, gA, 3.3);
+    const l4 = document.getElementById("l4");
+    const ch = MU.chip(l4, { text: "OPEN SOURCE", kind: "key", right: 56, top: 760 }); A.in(tl, ch, 1.0, { from: "right" }); A.out(tl, ch, 3.3);
+
+    // ---------- 3.7–8.7s graphic：经验文档 → Skill → GitHub（P15 + P23，上→下） ----------
+    const g1 = document.getElementById("g1"); MU.background(g1, { size: 80 });
+    const t1 = MU.title(g1, { text: "经验 → Skill", left: 80, top: 200 }); A.in(tl, t1, 3.9);
+    MU.foot(g1, { text: "01 / 整理与发布", left: 84, top: 160 });
+    const docs = [0, 1, 2].map((i) => MU.paper(g1, { title: ["步骤", "案例", "经验"][i], left: 110 + i * 300, top: 420 + (i % 2) * 40, width: 260, height: 300, blocks: [{ lines: 6, hl: i === 1 ? [2] : [] }] }));
+    A.stagger(tl, docs, 4.0, { from: "down", step: 0.15 });
+    // 三份文档汇聚成一个 Skill 窗口（对象连续：缩小移向中心后淡出，窗口在同位置放大出现）
+    docs.forEach((d, i) => A.morph(tl, d, 5.2, { x: (1 - i) * 300 + 0, y: 260 - (i % 2) * 40, scale: 0.35, autoAlpha: 0 }, 0.7));
+    const win = MU.windowBox(g1, { title: "SKILL.md", left: 240, top: 640, width: 600, height: 330 });
+    win.body.innerHTML = '<div class="mu-input" style="font-size:30px">my-workflow / <b style="color:var(--cyan)">Skill</b></div>' +
+      '<div class="mu-bars" id="g1bars"></div>';
+    tl.fromTo(win, { autoAlpha: 0, scale: .6 }, { autoAlpha: 1, scale: 1, duration: .5, ease: MU.M.eIn }, 5.7);
+    const rows = MU.hBars(win.body.querySelector("#g1bars"), [{ label: "使用说明", value: 100, fmt: (v) => Math.round(v) + "%" }, { label: "使用案例", value: 100, fmt: (v) => Math.round(v) + "%" }]);
+    A.hBars(tl, rows, 6.0, { max: 100, dur: 0.9 });
+    const sv = MU.svg(g1, 1080, 1920);
+    const p = MU.path(sv, "M 540 975 L 540 1120 L 540 1180", { width: 4 }); A.draw(tl, p, 7.0, 0.4);
+    const gh = MU.chip(g1, { text: "发布到 GitHub", kind: "ok", left: 380, top: 1190 }); gh.style.fontSize = "32px"; A.in(tl, gh, 7.4, { from: "scale" });
+    A.flow(tl, sv, p, 7.1, { n: 3, dur: 0.6 });
+    MU.foot(g1, { text: "示意 · ILLUSTRATIVE", left: 84, top: 1330 });
+
+    // ---------- 8.7–16s live+hud：顶部章节胶囊 + 数据卡 ----------
+    const nav = MU.chapterNav(l4, { items: ["整理", "安装", "传播"], active: 1, orient: "h", left: 56, top: 120 });
+    tl.set(nav, { autoAlpha: 0 }, 0); A.in(tl, nav, 8.9, { from: "down" });
+    const card = MU.hudCard(l4, { title: "Agent · 读取并安装", sub: "流程示意 · DEMO", left: 56, top: 220 }); card.style.width = "968px";
+    tl.set(card, { autoAlpha: 0 }, 0); A.in(tl, card, 9.6, { from: "down" });
+    A.hBars(tl, MU.hBars(card, [{ label: "读取仓库", value: 100, fmt: (v) => Math.round(v) + "%" }, { label: "安装 Skill", value: 100, fmt: (v) => Math.round(v) + "%" }]), 10.0, { max: 100, dur: 1.4 });
+    const ok = MU.chip(l4, { text: "直接用在任务里", kind: "ok", right: 56, top: 560 }); A.in(tl, ok, 13.5, { from: "right" });
+
+    // ---------- 字幕（源片无字幕 → bilingual） ----------
+    const subs = document.getElementById("l5");
+    [[1.4, 2.38, "具体怎么开源", "So how do you open-source it?"], [2.38, 3.6, "你就可以让 Agent 帮你了", "You can let an Agent do it for you."],
+     [3.85, 5.25, "把这套经验整理成 Skill", "Package your know-how into a Skill."], [5.3, 7.18, "配好使用说明和使用案例", "Add instructions and examples."],
+     [7.22, 8.35, "直接发布到 GitHub", "Then publish it straight to GitHub."], [8.8, 10.32, "别人拿到仓库链接", "Anyone with the repo link"],
+     [10.36, 11.5, "也可以交给自己的 Agent", "can hand it to their own Agent,"], [11.95, 13.12, "让它帮忙读取、安装", "which reads and installs it,"],
+     [13.5, 15.6, "直接在他的任务里面用起来", "and uses it right in their tasks."]].forEach(([a, b, cn, en]) => {
+      const s = MU.subtitle(subs, { cn, en, top: 1400 }); tl.set(s, { autoAlpha: 0 }, 0); tl.set(s, { autoAlpha: 1 }, a); tl.set(s, { autoAlpha: 0 }, b);
+    });
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+</html>

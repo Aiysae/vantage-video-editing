@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080" />
+  <title>vantage-video-editing demo 16x9</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <link rel="stylesheet" href="kit.css" />
+  <link rel="stylesheet" href="fonts.css" />
+  <style>
+    body { margin: 0; background: #000; }
+    #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+    .scene { position: absolute; inset: 0; }
+    /* 占位“真人底片”：正式项目替换为 <video> + 人物遮罩层 */
+    .live-ph { position: absolute; inset: 0; background: radial-gradient(ellipse at 52% 55%, #4a2a3c 0%, #1d1418 55%, #0c0a0b 100%); }
+    .live-ph .person { position: absolute; left: 790px; top: 260px; width: 340px; height: 820px; border-radius: 170px 170px 40px 40px; background: #0b0b0c; }
+    .live-ph .head { position: absolute; left: 875px; top: 170px; width: 170px; height: 210px; border-radius: 50%; background: #c9a48e; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="21">
+    <!-- S1 live+behind + live+hud (0–7s) -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="7.4" data-track-index="0">
+      <div class="live-ph"><div class="person"></div></div>
+      <div id="s1-giant-layer" class="mu-stage"></div>
+      <div class="live-ph" style="background:none"><div class="head"></div></div><!-- 占位遮罩层：真实项目为人物 alpha 视频 -->
+      <div id="s1-hud" class="mu-stage"></div>
+    </section>
+    <!-- S2 graphic: 文稿生成 + 计数 (7–13s) -->
+    <section id="s2" class="scene clip" data-start="7" data-duration="6.4" data-track-index="1"></section>
+    <!-- S3 graphic: 依赖提词器 → 管道 → 大脑 (13–21s) -->
+    <section id="s3" class="scene clip" data-start="13" data-duration="8" data-track-index="2"></section>
+    <div id="subs" class="mu-stage" style="pointer-events:none"></div>
+  </div>
+  <script src="kit.js"></script>
+  <script>
+    const { A } = MU, tl = gsap.timeline({ paused: true });
+    // ---------- S1 ----------
+    const g1 = MU.giant(document.getElementById("s1-giant-layer"), { number: true, html: "21.9<small>万</small>", left: 600, top: 120 });
+    A.giantIn(tl, g1, 0.3);
+    MU.A.move(tl, g1, 3.0, { x: -552, y: -100, scale: 0.34, transformOrigin: "left top" }, 0.7);
+    const hud = document.getElementById("s1-hud");
+    const nav = MU.chapterNav(hud, { items: ["选题", "研究", "挖透", "口述", "清理"], active: 0, left: 48, top: 360 });
+    A.stagger(tl, [...nav.children], 0.6, { from: "left", step: 0.08 });
+    const card = MU.hudCard(hud, { title: "粉丝增长", sub: "示意数据 · DEMO", left: 48, top: 150 });
+    tl.set(card, { autoAlpha: 0 }, 0); A.in(tl, card, 3.5, { from: "left" });
+    const rows = MU.hBars(card, [{ label: "2024 · 起点", value: 2, color: "grey", fmt: (v) => v.toFixed(1) + "万" }, { label: "2026 · 现在", value: 21.9, color: "yellow", fmt: (v) => v.toFixed(1) + "万" }]);
+    A.hBars(tl, rows, 3.8, { max: 22, dur: 1.4 });
+    const ev = MU.hudCard(hud, { title: "账号主页", sub: "证据截图槽 · SCREENSHOT", right: 48, top: 48 });
+    ev.style.height = "240px"; A.in(tl, ev, 1.2, { from: "right" });
+    const c1 = MU.chip(hud, { text: "AI 代写", kind: "err", right: 48, top: 320 }), c2 = MU.chip(hud, { text: "AI 加持", kind: "ok", right: 48, top: 372 });
+    A.in(tl, c1, 4.6, { from: "right" }); A.in(tl, c2, 5.3, { from: "right" }); tl.to(c1, { opacity: .45, duration: .3 }, 5.3);
+
+    // ---------- S2 ----------
+    const s2 = document.getElementById("s2"); MU.background(s2);
+    const t2 = MU.title(s2, { text: "AI 一口气写完", left: 120, top: 90 }); A.in(tl, t2, 7.5);
+    const pp = MU.paper(s2, { title: "逐字稿", badge: "AI 写", left: 760, top: 190, width: 400, height: 220,
+      blocks: [{ h: "一、背景", lines: 3 }, { h: "二、核心原理", lines: 5 }, { h: "三、行业影响", lines: 6 }] });
+    tl.fromTo(pp, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: .45, ease: MU.M.eIn }, 7.4);
+    tl.to(pp, { height: 720, duration: 2.4, ease: "power1.inOut" }, 8.0);
+    A.morph(tl, pp, 9.4, { x: -440 }, 0.9);
+    const lines = [...pp.querySelectorAll(".mu-paper-line,.mu-paper-h")];
+    lines.forEach((l, i) => tl.fromTo(l, { autoAlpha: 0, scaleX: .2 }, { autoAlpha: 1, scaleX: 1, duration: .25, ease: "power2.out" }, 8.0 + i * 0.13));
+    const cnt = MU.counter(s2, { unit: "字", left: 1080, top: 420 });
+    const cl = MU.el("div", "mu-counter-label", s2, "AI 写的字数", { left: "1084px", top: "350px" });
+    A.in(tl, cl, 9.8); A.in(tl, cnt, 9.8, { from: "scale" }); A.count(tl, cnt.querySelector(".n"), 9.9, { from: 0, to: 12410, dur: 1.6 });
+    const st = MU.stamp(s2, { text: "照着念？", left: 1090, top: 600 }); tl.set(st, { autoAlpha: 0 }, 0); A.stamp(tl, st, 11.8);
+    MU.foot(s2, { text: "示意 · ILLUSTRATIVE · NOT REAL DATA", left: 120, top: 1010 });
+
+    // ---------- S3 ----------
+    const s3 = document.getElementById("s3"); MU.background(s3);
+    const win = MU.windowBox(s3, { title: "TELEPROMPTER", left: 140, top: 300, width: 520, height: 360 });
+    win.body.innerHTML = '<div class="mu-paper-line" style="background:#3a3c42;width:90%"></div>'.repeat(3) + '<div class="mu-paper-line hl" style="width:70%"></div>' + '<div class="mu-paper-line" style="background:#3a3c42;width:84%"></div>'.repeat(3);
+    A.in(tl, win, 13.3, { from: "scale" });
+    const sv = MU.svg(s3, 1920, 1080);
+    const pipe = MU.path(sv, "M 660 480 L 860 480 L 860 360 L 1120 360 L 1120 470 L 1250 470", { color: "#5e6169", width: 14 });
+    const pipeIn = MU.path(sv, "M 660 480 L 860 480 L 860 360 L 1120 360 L 1120 470 L 1250 470", { color: "#2a2c30", width: 8 });
+    A.draw(tl, pipe, 14.0, 0.9); A.draw(tl, pipeIn, 14.0, 0.9);
+    const br = MU.brain(sv, 1440, 480, 180); tl.fromTo(br, { autoAlpha: 0, scale: .9, transformOrigin: "1440px 480px" }, { autoAlpha: 1, scale: 1, duration: .5, ease: MU.M.eIn }, 14.6);
+    A.flow(tl, sv, pipeIn, 15.1, { n: 7, dur: 1.6 });
+    A.fillBrain(tl, br, 15.6, 0.35, 2.0);
+    const h3 = MU.hudCard(s3, { title: "照着念 · 记住了多少", sub: "示意数据 · DEMO", left: 1230, top: 740 }); h3.style.width = "420px";
+    A.in(tl, h3, 17.2, { from: "down" });
+    A.hBars(tl, MU.hBars(h3, [{ label: "读稿", value: 11, color: "red", fmt: (v) => Math.round(v) + "%" }, { label: "自己讲", value: 77, fmt: (v) => Math.round(v) + "%" }]), 17.5, { max: 100, dur: 1.2 });
+    const e3 = MU.chip(s3, { text: "只会念稿的工具人", kind: "err", left: 210, top: 700 }); A.in(tl, e3, 16.2, { from: "down" });
+    const dg = MU.dots(s3, { cols: 14, rows: 4, left: 140, top: 820 }); A.in(tl, dg, 18.2);
+    A.dots(tl, dg, 18.4, [0, 1, 2, 3, 5, 8, 9, 12, 15, 16, 17, 20, 23, 24, 26, 29, 31, 32, 33, 36, 40, 41, 44, 47, 48, 52], 1.6);
+
+    // ---------- 字幕（bilingual 模式） ----------
+    const subs = document.getElementById("subs");
+    [[0.2, 3.0, "帮我从两万粉丝涨到了二十多万", "It helped me grow from 20K to over 200K followers."],
+     [3.0, 7.0, "但我的流程和别人真的不一样", "But my process is really different."],
+     [7.4, 13.0, "如果你用 AI 去写稿，它会写出一份很详尽的报告", "If AI writes your script, you get a very detailed report."],
+     [13.0, 21.0, "知识只是从你脑子里流过去了", "The knowledge just flows past your brain."]].forEach(([a, b, cn, en]) => {
+      const s = MU.subtitle(subs, { cn, en, top: 966 }); tl.set(s, { autoAlpha: 0 }, 0); tl.set(s, { autoAlpha: 1 }, a); tl.set(s, { autoAlpha: 0 }, b);
+    });
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+</html>

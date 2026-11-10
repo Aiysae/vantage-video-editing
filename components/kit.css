@@ -1,0 +1,136 @@
+/* vantage-video-editing 组件库样式 —— 数值来自 design/tokens.json，改动先改 tokens 再同步这里 */
+/* 字体：只用 local()；项目 fonts/ 里的文件由 scripts/new_project.sh 生成 fonts.css 以 url() 加载（渲染时不走网络） */
+@font-face { font-family: "MU Display"; font-weight: 900; src: local("Noto Sans SC Black"), local("NotoSansSC-Black"), local("Noto Sans CJK SC Black"), local("NotoSansCJKsc-Black"), local("Noto Sans CJK SC Bold"), local("NotoSansCJKsc-Bold"); }
+@font-face { font-family: "MU UI"; font-weight: 400; src: local("Noto Sans SC"), local("NotoSansSC-Regular"), local("Noto Sans CJK SC Regular"), local("NotoSansCJKsc-Regular"); }
+@font-face { font-family: "MU UI"; font-weight: 700; src: local("Noto Sans SC Bold"), local("NotoSansSC-Bold"), local("Noto Sans CJK SC Bold"), local("NotoSansCJKsc-Bold"); }
+
+:root {
+  --bg: #1a1a1a; --tex: #232323; --surface: #232427; --glass: rgba(24,25,28,.72); --line: rgba(255,255,255,.10);
+  --paper: #f6f6f4; --paper-line: #d9dbe0; --paper-text: #1d1f24;
+  --text: #f2f3f5; --muted: #9a9da5; --faint: #84878f;
+  --cyan: #66d4f2; --cyan-dim: #3f8fa6; --blue: #3a8ee0; --yellow: #f2d34a; --red: #f0585a;
+  --f-display: "MU Display Local", "MU Display", sans-serif; --f-ui: "MU UI Local", "MU UI", sans-serif;
+  /* 字号：16:9 默认；9:16 由 .mu-v 覆盖 */
+  --s-giant: 190px; --s-number: 230px; --s-title: 72px; --s-card: 44px; --s-body: 36px; --s-label: 36px; --s-micro: 32px; --s-counter: 110px;
+  --s-sub-cn: 48px; --s-sub-en: 32px; --margin: 48px; --hud-w: 640px;
+}
+.mu-v { --s-giant: 200px; --s-number: 240px; --s-title: 72px; --s-card: 48px; --s-body: 38px; --s-label: 38px; --s-micro: 30px; --s-counter: 120px;
+  --s-sub-cn: 48px; --s-sub-en: 26px; --margin: 56px; --hud-w: 560px; }
+
+.mu-abs { position: absolute; }
+.mu-stage { position: absolute; inset: 0; overflow: hidden; font-family: var(--f-ui); color: var(--text); }
+
+/* 背景：暗底 + 品牌字纹理 */
+.mu-bg { position: absolute; inset: 0; background: var(--bg); overflow: hidden; }
+.mu-tex { position: absolute; left: -10%; top: -6%; width: 120%; font-family: var(--f-display); font-weight: 900; color: var(--tex);
+  font-size: 64px; line-height: 1.12; white-space: nowrap; letter-spacing: .02em; }
+.mu-tex div:nth-child(even) { transform: translateX(-160px); }
+.mu-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 45%, rgba(0,0,0,.45) 100%); }
+
+/* HUD 卡 */
+.mu-hud { position: absolute; width: var(--hud-w); box-sizing: border-box; padding: 16px 18px; border-radius: 18px;
+  background: var(--glass); border: 1px solid var(--line); box-shadow: 0 18px 48px rgba(0,0,0,.45); backdrop-filter: blur(12px); }
+.mu-hud-title { font-size: var(--s-card); font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.mu-hud-title::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); }
+.mu-hud-sub { font-size: var(--s-micro); color: var(--faint); margin-top: 4px; letter-spacing: .06em; }
+
+/* 胶囊 */
+.mu-chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; font-size: var(--s-label); font-weight: 700;
+  background: var(--glass); border: 1px solid var(--line); color: var(--text); white-space: nowrap; }
+.mu-chip i { width: 1.1em; height: 1.1em; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: .7em; color: #111; background: var(--muted); }
+.mu-chip.ok i { background: var(--cyan); } .mu-chip.err i { background: var(--red); color: #fff; } .mu-chip.key i { background: var(--yellow); }
+.mu-chip.err { color: #ffd9d9; border-color: rgba(240,88,90,.35); }
+.mu-chip.solid-red { background: var(--red); color: #fff; border: none; }
+
+/* 章节导航 */
+.mu-nav { position: absolute; display: flex; flex-direction: column; gap: 10px; font-size: var(--s-label); }
+.mu-nav.h { flex-direction: row; gap: 12px; }
+.mu-nav-item { display: flex; align-items: center; gap: 10px; color: var(--faint); font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.mu-nav-item b { font-family: var(--f-display); font-size: .9em; opacity: .9; }
+.mu-nav-item .dot { width: .3em; height: .3em; border-radius: 50%; background: currentColor; }
+.mu-nav-item.on { color: var(--text); background: var(--glass); border: 1px solid var(--line); }
+.mu-nav-item.on .dot { background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+/* 人物后巨字 */
+.mu-giant { position: absolute; font-family: var(--f-display); font-weight: 900; font-size: var(--s-giant); line-height: 1; letter-spacing: -.02em;
+  color: rgba(255,255,255,.94); text-shadow: 0 8px 30px rgba(0,0,0,.35); white-space: nowrap; }
+.mu-giant.num { font-size: var(--s-number); color: var(--yellow); }
+.mu-giant small { font-size: .42em; margin-left: .08em; }
+
+/* 文稿纸 */
+.mu-paper { position: absolute; box-sizing: border-box; background: var(--paper); border-radius: 6px; box-shadow: 0 24px 60px rgba(0,0,0,.55);
+  padding: 22px 24px; color: var(--paper-text); overflow: hidden; }
+.mu-paper-head { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: var(--s-label); margin-bottom: 14px; }
+.mu-badge { font-size: var(--s-micro); padding: 3px 10px; border-radius: 999px; background: #2b6fb8; color: #fff; font-weight: 700; }
+.mu-paper-h { font-weight: 700; font-size: var(--s-label); margin: 14px 0 8px; }
+.mu-paper-line { height: 9px; border-radius: 5px; background: var(--paper-line); margin: 9px 0; transform-origin: left center; }
+.mu-paper-line.mark { background: rgba(240,88,90,.55); }
+.mu-paper-line.hl { background: rgba(102,212,242,.7); }
+
+/* 窗口 / 设备 */
+.mu-window { position: absolute; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 18px 48px rgba(0,0,0,.45); overflow: hidden; }
+.mu-window-bar { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: var(--s-micro); color: var(--muted); }
+.mu-window-bar span { width: 10px; height: 10px; border-radius: 50%; background: #3a3c42; }
+.mu-window-bar em { font-style: normal; margin-left: 8px; letter-spacing: .06em; }
+.mu-window-body { padding: 20px; }
+.mu-input { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: var(--s-body); color: var(--text); background: #1c1d20; min-height: 1.4em; }
+.mu-caret { display: inline-block; width: 2px; height: 1em; background: var(--cyan); vertical-align: -0.12em; margin-left: 2px; }
+.mu-phone { position: absolute; box-sizing: border-box; background: #0f1012; border: 6px solid #2b2d31; border-radius: 40px; box-shadow: 0 24px 60px rgba(0,0,0,.55); overflow: hidden; }
+.mu-phone-screen { position: absolute; inset: 0; background: var(--paper); color: var(--paper-text); padding: 46px 16px 16px; }
+.mu-phone::before { content: ""; position: absolute; top: 10px; left: 50%; width: 32%; height: 20px; margin-left: -16%; background: #0f1012; border-radius: 12px; z-index: 2; }
+.mu-row { display: flex; align-items: center; gap: 10px; padding: 9px 4px; border-bottom: 1px solid #e6e8ec; font-size: var(--s-micro); }
+.mu-row .av { width: 28px; height: 28px; border-radius: 50%; background: #7c63e6; flex: none; }
+.mu-row .tx { flex: 1; } .mu-row .tx b { display: block; font-size: var(--s-micro); }
+.mu-row .unread { width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+.mu-badge-count { position: absolute; padding: 4px 12px; border-radius: 999px; background: var(--red); color: #fff; font-weight: 900; font-size: var(--s-label); font-family: var(--f-display); }
+
+/* 数据 */
+.mu-bars { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+.mu-bar-row { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: end; font-size: var(--s-micro); color: var(--muted); }
+.mu-bar-track { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+.mu-bar-fill { height: 100%; border-radius: 4px; background: var(--cyan); transform-origin: left center; }
+.mu-bar-fill.red { background: var(--red); } .mu-bar-fill.yellow { background: var(--yellow); } .mu-bar-fill.grey { background: #6b6e75; }
+.mu-bar-val { font-family: var(--f-display); font-weight: 900; font-size: var(--s-label); color: var(--text); font-variant-numeric: tabular-nums; }
+.mu-vbars { position: absolute; display: flex; align-items: flex-end; gap: 28px; }
+.mu-vbar { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: var(--s-label); color: var(--muted); }
+.mu-vbar-fill { width: 64px; border-radius: 8px 8px 2px 2px; background: var(--cyan); transform-origin: bottom center; }
+.mu-vbar-val { font-family: var(--f-display); font-weight: 900; color: var(--text); font-size: var(--s-card); font-variant-numeric: tabular-nums; }
+.mu-counter { position: absolute; font-family: var(--f-display); font-weight: 900; font-size: var(--s-counter); color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
+.mu-counter small { font-size: .3em; color: var(--muted); margin-left: .15em; }
+.mu-counter-label { position: absolute; font-size: var(--s-label); color: var(--muted); }
+.mu-dots { position: absolute; display: grid; gap: 7px; }
+.mu-dots i { width: 14px; height: 14px; border-radius: 4px; background: rgba(255,255,255,.08); }
+.mu-dots i.on { background: var(--blue); }
+
+/* 路径 / 脑 / 印章 / 脚注 */
+.mu-svg { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.mu-stamp { position: absolute; padding: 10px 22px; border: 5px solid var(--yellow); color: var(--yellow); border-radius: 12px; font-family: var(--f-display); font-weight: 900;
+  font-size: var(--s-title); letter-spacing: .08em; transform-origin: center; }
+.mu-foot { position: absolute; font-size: var(--s-micro); color: var(--faint); letter-spacing: .08em; text-transform: uppercase; }
+.mu-title { position: absolute; font-family: var(--f-display); font-weight: 900; font-size: var(--s-title); color: var(--text); }
+
+/* 双语字幕（仅 subtitle=bilingual） */
+.mu-sub { position: absolute; left: 0; right: 0; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,.6), 0 0 12px rgba(0,0,0,.35); }
+.mu-sub .cn { font-size: var(--s-sub-cn); font-weight: 700; color: #fff; line-height: 1.2; }
+.mu-sub .en { font-size: var(--s-sub-en); font-weight: 400; color: rgba(255,255,255,.82); margin-top: 6px; }
+
+/* 亮背景素材（白墙等，抽帧平均亮度 > 0.6）：巨字改深色，HUD 加深 —— 在 #root 上加 class="mu-light" */
+.mu-light .mu-giant { color: rgba(22,23,26,.92); text-shadow: 0 6px 24px rgba(255,255,255,.25); }
+.mu-light .mu-giant.num { color: #e0b520; text-shadow: 0 4px 18px rgba(0,0,0,.25); }
+.mu-light .mu-hud, .mu-light .mu-chip, .mu-light .mu-nav-item.on { background: rgba(18,19,22,.88); }
+.mu-light .mu-nav-item { color: #3d4047; }
+.mu-light .mu-nav-item.on { color: var(--text); }
+.mu-light .mu-hud-sub { color: #a4a7ae; }
+
+/* 图标：品牌图标卡（官方图形＋名称）与概念线性图标 */
+.mu-brand { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.mu-brand-tile { display: grid; place-items: center; border-radius: 28%; background: var(--surface); border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06); }
+.mu-brand-tile svg { width: 58%; height: 58%; }
+.mu-brand-tile img { width: 64%; height: 64%; object-fit: contain; }
+.mu-brand-label { font-family: var(--f-display); font-weight: 900; color: var(--text); letter-spacing: .01em; white-space: nowrap; }
+.mu-brand.row { flex-direction: row; gap: 18px; }
+.mu-icon { position: absolute; display: grid; place-items: center; color: var(--text); }
+.mu-icon svg { width: 100%; height: 100%; }
+.mu-inline-icon { display: inline-grid; width: 1.15em; height: 1.15em; vertical-align: -0.2em; margin-right: .35em; }
+.mu-inline-icon svg { width: 100%; height: 100%; }

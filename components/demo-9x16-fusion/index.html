@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
+  <title>E 融合 + 镜头 + 图标</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <link rel="stylesheet" href="kit.css" /><link rel="stylesheet" href="fonts.css" />
+  <style>
+    body { margin: 0; background: #000; }
+    #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+    .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    #livewrap { position: absolute; inset: 0; z-index: 1; transform-origin: 50% 38%; }
+    #bgworld { position: absolute; inset: 0; z-index: 2; overflow: hidden; }
+    #behind { position: absolute; inset: 0; z-index: 3; }
+    #personwrap { position: absolute; inset: 0; z-index: 4; transform-origin: 50% 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%); }
+    #front { position: absolute; inset: 0; z-index: 5; overflow: hidden; }
+    #world { position: absolute; left: 0; top: 0; width: 1080px; height: 3000px; }
+    #hud { z-index: 6; } #l5 { z-index: 7; }
+  </style>
+</head>
+<body>
+  <div id="root" class="mu-v" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="8">
+    <div id="livewrap"><video id="l0" class="full clip" src="assets/source.mp4" data-start="0" data-duration="8" data-media-start="3.7" data-track-index="0" muted playsinline></video></div>
+    <audio id="vo" src="assets/source.mp4" data-start="0" data-duration="8" data-media-start="3.7" data-track-index="10" data-volume="1"></audio>
+    <div id="bgworld"></div>
+    <div id="behind" class="mu-stage"></div>
+    <div id="personwrap"><video id="l3" class="full clip" src="assets/person.webm" data-start="0" data-duration="8" data-media-start="3.7" data-track-index="1" muted playsinline></video></div>
+    <div id="front" class="mu-stage"></div>
+    <div id="hud" class="mu-stage mu-light"></div>
+    <div id="l5" class="mu-stage"></div>
+  </div>
+  <script src="icons/icons.js"></script><script src="kit.js"></script><script src="fx.js"></script><script src="common.js"></script>
+  <script>
+    const { A } = MU, tl = gsap.timeline({ paused: true }), $ = (id) => document.getElementById(id);
+    // ① D：墙面以头部为圆心溶解成品牌空间；背景纹理慢速漂移（与前景镜头形成视差）
+    const bgw = $("bgworld"); const bg = MU.background(bgw, { size: 80 });
+    FX.keyLight(bgw, { x: "50%", y: "40%", w: "75%", h: "50%", color: "rgba(102,212,242,0.22)" });
+    tl.fromTo(bgw, { clipPath: "circle(0% at 50% 38%)" }, { clipPath: "circle(130% at 50% 38%)", duration: 0.75, ease: "power2.inOut" }, 0.05);
+    tl.fromTo(bg.querySelector(".mu-tex"), { y: 0 }, { y: -140, duration: 5.3, ease: "none" }, 0);
+    const pw = $("personwrap");
+    tl.fromTo(pw, { filter: "drop-shadow(0 0 0px rgba(102,212,242,0))" }, { filter: "drop-shadow(0 0 26px rgba(102,212,242,0.45))", duration: 0.6 }, 0.3);
+    // ② D：文稿从人物身后飞出
+    const spots = [{ x: 60, y: 330, r: -8 }, { x: 410, y: 140, r: 0 }, { x: 760, y: 330, r: 8 }];
+    const docs = spots.map((p, i) => MU.paper($("behind"), { title: MU.inlineIcon("file-text") + ["步骤", "案例", "经验"][i], left: p.x, top: p.y, width: 260, height: 310, blocks: [{ lines: 6, hl: i === 1 ? [2] : [] }] }));
+    docs.forEach((d, i) => tl.fromTo(d, { autoAlpha: 0, x: 410 - spots[i].x, y: 520 - spots[i].y, scale: 0.4, rotation: 0 }, { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: spots[i].r, duration: 0.7, ease: "back.out(1.2)" }, 0.45 + i * 0.12));
+    docs.forEach((d, i) => tl.to(d, { x: 410 - spots[i].x, y: 210 - spots[i].y, scale: 0.3, rotation: 0, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 1.45 + i * 0.05));
+    // ③ B：前景是一张可被镜头移动的长画布（world），站点：Skill 窗口 → GitHub
+    const front = $("front"); const world = MU.el("div", null, front); world.id = "world";
+    const mb = FX.blurFilter(front, "camblur"); world.style.filter = mb.url;
+    FX.camera(tl, world, { w: 1080, h: 1920 }, { x: 540, y: 960, s: 1 }, [
+      { t: 2.15, dur: 0.75, x: 540, y: 520, s: 1.12 },
+      { t: 3.05, dur: 0.6, x: 540, y: 1520, s: 1.15 },
+      { t: 3.95, dur: 0.8, x: 540, y: 1050, s: 0.56, ease: "power2.inOut" },
+      { t: 4.8, dur: 0.45, x: 540, y: 1470, s: 3.6, ease: "power3.in" },
+    ], { total: 5.3, drift: 4 });
+    mb.leg(tl, 3.05, 0.6, 0, 16); mb.leg(tl, 4.8, 0.45, 10, 24);
+    // 站点 1：Skill 窗口（概念图标 package）
+    const win = MU.windowBox(world, { title: "SKILL.md", left: 200, top: 150, width: 680, height: 340 });
+    win.body.innerHTML = `<div class="mu-input" style="font-size:32px">${MU.inlineIcon("package")}my-workflow / <b style="color:var(--cyan)">Skill</b></div><div class="mu-bars" id="wb"></div>`;
+    win.style.boxShadow = "0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(102,212,242,.25)";
+    tl.fromTo(win, { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 1.9);
+    A.hBars(tl, MU.hBars(win.querySelector("#wb"), [{ label: "使用说明", value: 100, fmt: (v) => Math.round(v) + "%" }, { label: "使用案例", value: 100, fmt: (v) => Math.round(v) + "%" }]), 2.45, { max: 100, dur: 0.8 });
+    // D：人物让位到左下（屏幕固定，不随镜头 → 与前景形成层次）
+    tl.to(pw, { scale: 0.5, x: -280, y: 420, duration: 0.75, ease: "power3.inOut" }, 2.15);
+    // 站点间路径 + 流点
+    const sv = MU.svg(world, 1080, 3000);
+    const p1 = MU.path(sv, "M 540 490 L 540 1370", { width: 4, color: "#3f8fa6" }); A.draw(tl, p1, 2.9, 0.5); A.flow(tl, sv, p1, 3.0, { n: 5, dur: 0.75 });
+    // 站点 2：GitHub —— 官方图形 + 名称 + 仓库卡
+    const gh = MU.brand(world, { slug: "github", label: "GitHub", size: 220, left: 430, top: 1380 });
+    const ghGlow = FX.glow(world, { x: 540, y: 1490, w: 520, h: 420, color: "rgba(102,212,242,0.45)", before: gh });
+    tl.fromTo(gh.tile, { autoAlpha: 0, scale: 0.5, rotation: -8 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(2)" }, 3.5);
+    tl.fromTo(gh.lastChild, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 3.7);
+    FX.bloom(tl, ghGlow, 3.55, 0.55);
+    const repo = MU.hudCard(world, { title: MU.inlineIcon("folder-git-2") + "my-workflow", sub: "PUBLIC REPOSITORY", left: 300, top: 1720 }); repo.style.width = "480px";
+    tl.fromTo(repo, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.85);
+    // ④ B 穿越推进 + D 复原：前景淡出、墙面复原、人物回位、真人从模糊落定
+    tl.to(front, { opacity: 0, duration: 0.2, ease: "power1.in" }, 4.88);
+    tl.to(pw, { scale: 1, x: 0, y: 0, duration: 0.55, ease: "power3.inOut" }, 4.92);
+    tl.to(bgw, { clipPath: "circle(0% at 50% 38%)", duration: 0.5, ease: "power2.inOut" }, 4.95);
+    tl.to(pw, { filter: "drop-shadow(0 0 0px rgba(102,212,242,0))", duration: 0.4 }, 5.0);
+    tl.set(pw, { opacity: 0 }, 5.45);
+    const lw = $("livewrap");
+    tl.fromTo(lw, { scale: 1.25, filter: "blur(14px)" }, { scale: 1.0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 5.0);
+    tl.to(lw, { scale: 1.07, duration: 2.45, ease: "sine.inOut" }, 5.55);
+    // ⑤ 真人段 HUD：GitHub 仓库链接 → 你的 Agent（全部用图标表达实体）
+    const hud = $("hud");
+    const nav = MU.chapterNav(hud, { items: ["整理", "安装", "传播"], active: 1, orient: "h", left: 56, top: 120 }); tl.set(nav, { autoAlpha: 0 }, 0); A.in(tl, nav, 5.35, { from: "down" });
+    const card = MU.hudCard(hud, { title: "别人怎么用", sub: "流程示意 · DEMO", left: 56, top: 220 }); card.style.width = "968px"; card.style.height = "290px";
+    tl.set(card, { autoAlpha: 0 }, 0); A.in(tl, card, 5.5, { from: "down" });
+    const b1 = MU.brand(card, { slug: "github", label: "仓库链接", size: 110, left: 110, top: 104, labelSize: 26 });
+    const lk = MU.icon(card, { name: "link", size: 44, left: 300, top: 142, color: "var(--cyan)" });
+    const sv2 = MU.svg(card, 968, 250); const ar = MU.path(sv2, "M 370 164 L 600 164", { width: 4, color: "#66d4f2" });
+    const b2w = MU.el("div", "mu-brand", card, null, { left: "680px", top: "104px" });
+    const b2t = MU.el("div", "mu-brand-tile", b2w, window.MU_ICONS.lucide["bot"], { width: "110px", height: "110px", color: "#66d4f2" });
+    b2t.querySelector("svg").setAttribute("stroke-width", "1.6");
+    MU.el("div", "mu-brand-label", b2w, "你的 Agent", { fontSize: "26px" });
+    [b1, lk].forEach((e, i) => tl.fromTo(e, { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 5.75 + i * 0.2));
+    tl.set(ar, { autoAlpha: 0 }, 0); tl.set(ar, { autoAlpha: 1 }, 6.6); A.draw(tl, ar, 6.6, 0.4); A.flow(tl, sv2, ar, 6.75, { n: 3, dur: 0.5 });
+    tl.fromTo(b2w, { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 7.0);
+    addSubs(tl, $("l5"));
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+</html>
